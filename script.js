@@ -50,34 +50,34 @@ const tierTables = {
 // Define probabilities for each talisman type
 const probabilities = {
     "Pawn": [
-        { text: "Tier 1", probability: 85, level: true },
-        { text: "Tier 2", probability: 10, level: false },
-        { text: "Tier 3", probability: 5, level: false }
+        { text: "Tier 1", probability: 95, level: true },
+        { text: "Tier 2", probability: 5, level: false },
+        { text: "Tier 3", probability: 0, level: false }
     ],
     "Bishop": [
         { text: "Tier 1", probability: 68, level: true },
-        { text: "Tier 2", probability: 20, level: false },
-        { text: "Tier 3", probability: 12, level: false }
+        { text: "Tier 2", probability: 32, level: false },
+        { text: "Tier 3", probability: 0, level: false }
     ],
     "Knight": [
-        { text: "Tier 1", probability: 75, level: true },
-        { text: "Tier 2", probability: 15, level: false },
-        { text: "Tier 3", probability: 10, level: false }
+        { text: "Tier 1", probability: 51, level: true },
+        { text: "Tier 2", probability: 57, level: false },
+        { text: "Tier 3", probability: 2, level: false }
     ],
     "Rook": [
-        { text: "Tier 1", probability: 70, level: true },
-        { text: "Tier 2", probability: 20, level: false },
-        { text: "Tier 3", probability: 10, level: false }
+        { text: "Tier 1", probability: 20, level: true },
+        { text: "Tier 2", probability: 63, level: false },
+        { text: "Tier 3", probability: 17, level: false }
     ],
     "Queen": [
-        { text: "Tier 1", probability: 60, level: true },
-        { text: "Tier 2", probability: 25, level: false },
-        { text: "Tier 3", probability: 15, level: false }
+        { text: "Tier 1", probability: 9, level: true },
+        { text: "Tier 2", probability: 49, level: false },
+        { text: "Tier 3", probability: 42, level: false }
     ],
     "King": [
-        { text: "Tier 1", probability: 55, level: true },
-        { text: "Tier 2", probability: 25, level: false },
-        { text: "Tier 3", probability: 20, level: false }
+        { text: "Tier 1", probability: 1, level: true },
+        { text: "Tier 2", probability: 43, level: false },
+        { text: "Tier 3", probability: 56, level: false }
     ]
 };
 
@@ -110,9 +110,17 @@ function generateText(talismanType, resultElementId) {
         
         // Determine the level
         let level = selectedTier.level ? (Math.random() < 0.12 ? 2 : 1) : 1;
-        item += ` - Lv.${level}`;
+        item += ` - ${level}`;
         
-        resultHtml += `<p>${item}</p>`;
+        resultHtml += `<p>Main Skill: ${item}</p>`;
+    }
+    
+    // Add bonus skills for Knight, Rook, Queen, and King
+    if (talismanType === "Knight" || talismanType === "Rook" || talismanType === "Queen" || talismanType === "King") {
+        const bonusSkills = ["Bonus 1", "Bonus 2", "Bonus 3", "Bonus 4", "Bonus 5", "Bonus 6", "Bonus 7"];
+        let bonusIndex = Math.floor(Math.random() * bonusSkills.length);
+        let bonus = bonusSkills[bonusIndex];
+        resultHtml += `<p>Bonus Skill: ${bonus}</p>`;
     }
     
     // Insert the result HTML into the specified placeholder
