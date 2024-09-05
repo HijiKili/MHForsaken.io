@@ -11,12 +11,16 @@
         .button-container {
             margin: 20px;
         }
+        .button-container button {
+            display: block;
+            margin-bottom: 5px;
+        }
         .result {
             margin-top: 10px;
             font-size: 0.8em; /* Smaller font size */
         }
         .result h2, .result h3 {
-            font-size: 1em; /* Adjust as needed */
+            font-size: 0.9em; /* Adjust as needed */
         }
     </style>
 </head>
@@ -53,4 +57,4 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+<
