@@ -1,29 +1,31 @@
-const options = [
-    { text: "Option A", percentage: 50 },
-    { text: "Option B", percentage: 30 },
-    { text: "Option C", percentage: 20 }
-];
+document.getElementById("generateButton").addEventListener("click", generateText);
 
-document.getElementById('generateButton').addEventListener('click', function() {
-    const result = generateTextBasedOnPercentage(options);
-    document.getElementById('result').innerText = result;
-});
+function generateText() {
+    const table = document.getElementById("percentageTable");
+    const rows = table.getElementsByTagName("tr");
 
-function generateTextBasedOnPercentage(options) {
-    // Calculate the total percentage
-    const totalPercentage = options.reduce((total, option) => total + option.percentage, 0);
+    // Array to hold options and probabilities
+    const options = [];
+
+    // Loop through table rows (skip the header)
+    for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName("td");
+        const text = cells[0].textContent;
+        const probability = parseFloat(cells[1].textContent);
+        options.push({ text: text, probability: probability });
+    }
 
     // Generate a random number between 0 and 100
-    const random = Math.random() * totalPercentage;
+    let random = Math.random() * 100;
+    let cumulativeProbability = 0;
 
-    let accumulated = 0;
-
-    // Determine which option to return based on the random number
-    for (const option of options) {
-        accumulated += option.percentage;
-        if (random < accumulated) {
-            return option.text;
+    // Loop through the options and select based on the random number
+    for (let i = 0; i < options.length; i++) {
+        cumulativeProbability += options[i].probability;
+        if (random < cumulativeProbability) {
+            // Display only one selected result
+            document.getElementById("result").textContent = options[i].text;
+            break;
         }
     }
-    return "No option selected"; // Fallback case
 }
