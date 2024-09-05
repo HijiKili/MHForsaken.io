@@ -79,16 +79,56 @@ const talismanProbabilities = {
     }
 };
 
+// Define the custom probabilities for each talisman
+const talismanProbabilities = {
+    "Pawn": {
+        "Tier 1": { chance: 95, levels: { "1": 100, "2": 0, "3": 0 } },
+        "Tier 2": { chance: 5, levels: { "1": 100, "2": 0, "3": 0 } },
+        "Tier 3": { chance: 0, levels: { "1": 100 } }
+    },
+    "Bishop": {
+        "Tier 1": { chance: 68, levels: { "1": 95, "2": 5 } },
+        "Tier 2": { chance: 32, levels: { "1": 100 } },
+        "Tier 3": { chance: 0, levels: { "1": 100 } }
+    },
+    "Knight": {
+        "Tier 1": { chance: 51, levels: { "1": 83, "2": 12, "3": 5 } },
+        "Tier 2": { chance: 57, levels: { "1": 95, "2": 5 } },
+        "Tier 3": { chance: 2, levels: { "1": 100 } }
+    },
+    "Rook": {
+        "Tier 1": { chance: 20, levels: { "1": 61, "2": 27, "3": 12 } },
+        "Tier 2": { chance: 63, levels: { "1": 83, "2": 17 } },
+        "Tier 3": { chance: 17, levels: { "1": 100 } }
+    },
+    "Queen": {
+        "Tier 1": { chance: 9, levels: { "1": 24, "2": 49, "3": 27 } },
+        "Tier 2": { chance: 49, levels: { "1": 69, "2": 27 } },
+        "Tier 3": { chance: 42, levels: { "1": 100 } }
+    },
+    "King": {
+        "Tier 1": { chance: 1, levels: { "1": 0, "2": 61, "3": 39 } },
+        "Tier 2": { chance: 43, levels: { "1": 55, "2": 45 } },
+        "Tier 3": { chance: 56, levels: { "1": 100 } }
+    }
+};
+
+// Define bonus skills for Knight, Rook, Queen, and King
+const bonusSkills = [
+    "Bonus Skill 1", "Bonus Skill 2", "Bonus Skill 3",
+    "Bonus Skill 4", "Bonus Skill 5", "Bonus Skill 6", "Bonus Skill 7"
+];
+
 // Function to generate text based on the talisman type and show results in the specified result container
 function genText(type, resultId) {
     const resultContainer = document.getElementById(resultId);
     const mainSkill = getRandomSkill(type, "Main Skill");
-    const bonusSkills = getBonusSkills(type);
+    const bonusSkillsHTML = getBonusSkills(type);
 
     resultContainer.innerHTML = `
         <h2>Main Skill:</h2>
         <p>${mainSkill}</p>
-        ${bonusSkills}
+        ${bonusSkillsHTML}
     `;
 }
 
@@ -126,24 +166,29 @@ function getRandomLevel(levelProbabilities) {
             return level;
         }
     }
-    return "Lv.1"; // Default return value
+    return "1"; // Default return value
 }
 
-// Function to get bonus skills for Knight, Rook, Queen, and King
+// Function to get random bonus skills for Knight, Rook, Queen, and King
 function getBonusSkills(type) {
     if (["Knight", "Rook", "Queen", "King"].includes(type)) {
-        const bonusSkills = [
-            "Bonus Skill 1", "Bonus Skill 2", "Bonus Skill 3",
-            "Bonus Skill 4", "Bonus Skill 5", "Bonus Skill 6", "Bonus Skill 7"
-        ];
+        // Randomly select between 1 to 3 bonus skills
+        const numSkills = Math.floor(Math.random() * 3) + 1;
+        const selectedSkills = [];
+        const shuffledSkills = [...bonusSkills].sort(() => 0.5 - Math.random()); // Shuffle bonusSkills
+
+        for (let i = 0; i < numSkills; i++) {
+            selectedSkills.push(shuffledSkills[i]);
+        }
 
         return `
             <h3>Bonus:</h3>
             <ul>
-                ${bonusSkills.map(skill => `<li>${skill}</li>`).join('')}
+                ${selectedSkills.map(skill => `<li>${skill}</li>`).join('')}
             </ul>
         `;
     }
     return '';
 }
+
 
