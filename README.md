@@ -27,11 +27,11 @@
 
 <button type="button" >King Talisman</button>
 
- <h1>Text Generator</h1>
-    <h1>Text Generator</h1>
+<h1>Text Generator</h1>
     <button id="generateButton">Generate Text</button>
     <p id="result"></p>
-    <script src="script.js"></script>
+
+<script src="script.js"></script>
 </body>
 
 </html>
