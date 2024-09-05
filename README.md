@@ -22,25 +22,25 @@
     <h1>Text Generator</h1>
     <br>
     <h2>Mystery Charm</h2>
-    <div id="pawnResult"></div>
     <button id="generatePawnButton">Generate Pawn Talisman</button>
+    <div id="pawnResult"></div>
     <br>
-    <div id="bishopResult"></div>
     <button id="generateBishopButton">Generate Bishop Talisman</button>
+    <div id="bishopResult"></div>
     <br>
     <h2>Shining Charm</h2>
-    <div id="knightResult"></div>
     <button id="generateKnightButton">Generate Knight Talisman</button>
+    <div id="knightResult"></div>
     <br>
-    <div id="rookResult"></div>
     <button id="generateRookButton">Generate Rook Talisman</button>
+    <div id="rookResult"></div>
     <br>
     <h2>Timeworn Charm</h2>
-    <div id="queenResult"></div>
     <button id="generateQueenButton">Generate Queen Talisman</button>
+    <div id="queenResult"></div>
     <br>
-    <div id="kingResult"></div>
     <button id="generateKingButton">Generate King Talisman</button>
+    <div id="kingResult"></div>
     <br>
     <script src="script.js"></script>
 </body>
