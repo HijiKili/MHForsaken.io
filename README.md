@@ -1,11 +1,5 @@
 <html>
 <body>
-<style>
-body {
-  background-color: #034;
-  color: #fff;
-}
-</style>
 
 <h1>Monster Hunter Forsaken</h1>
 <img src="images/MHForsakenLogo.png" width="100%" height="100%">
