@@ -1,5 +1,4 @@
 <html>
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
 </head>
 
 <body>
-
 <h1>Monster Hunter Forsaken</h1>
 <img src="images/MHForsakenLogo.png" width="100%" height="100%">
 
@@ -30,12 +28,10 @@
 <button type="button" >King Talisman</button>
 
  <h1>Text Generator</h1>
-    <input type="text" id="inputText" placeholder="Enter text">
+    <h1>Text Generator</h1>
     <button id="generateButton">Generate Text</button>
     <p id="result"></p>
-
     <script src="script.js"></script>
-
 </body>
 
 </html>
