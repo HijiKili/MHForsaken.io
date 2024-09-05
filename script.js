@@ -1,10 +1,10 @@
 // Add event listeners for each button
-document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn"));
-document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop"));
-document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight"));
-document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook"));
-document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen"));
-document.getElementById("generateKingButton").addEventListener("click", () => generateText("King"));
+document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn", "pawnResult"));
+document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop", "bishopResult"));
+document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight", "knightResult"));
+document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook", "rookResult"));
+document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen", "queenResult"));
+document.getElementById("generateKingButton").addEventListener("click", () => generateText("King", "kingResult"));
 
 // Define the common tables for Tier 1, Tier 2, and Tier 3
 const tierTables = {
@@ -81,7 +81,7 @@ const probabilities = {
     ]
 };
 
-function generateText(talismanType) {
+function generateText(talismanType, resultElementId) {
     // Get the probabilities for the selected talisman type
     const selectedProbabilities = probabilities[talismanType];
 
@@ -115,6 +115,6 @@ function generateText(talismanType) {
         resultHtml += `<p>${item}</p>`;
     }
     
-    // Insert the result HTML into the placeholder
-    document.getElementById("result").innerHTML = resultHtml;
+    // Insert the result HTML into the specified placeholder
+    document.getElementById(resultElementId).innerHTML = resultHtml;
 }
