@@ -1,31 +1,34 @@
 document.getElementById("generateButton").addEventListener("click", generateText);
 
 function generateText() {
-    const table = document.getElementById("percentageTable");
-    const rows = table.getElementsByTagName("tr");
-
-    // Array to hold options and probabilities
-    const options = [];
-
-    // Loop through table rows (skip the header)
-    for (let i = 1; i < rows.length; i++) {
-        const cells = rows[i].getElementsByTagName("td");
-        const text = cells[0].textContent;
-        const probability = parseFloat(cells[1].textContent);
-        options.push({ text: text, probability: probability });
-    }
+    // Define options and percentages with nested table for one option
+    const options = [
+        { text: "Text Option 1", probability: 30, hasNestedTable: true, nestedTable: [
+            { detail: "Detail 1.1", value: "Value 1.1" },
+            { detail: "Detail 1.2", value: "Value 1.2" }
+        ]},
+        { text: "Text Option 2", probability: 50, hasNestedTable: false },
+        { text: "Text Option 3", probability: 20, hasNestedTable: false }
+    ];
 
     // Generate a random number between 0 and 100
     let random = Math.random() * 100;
     let cumulativeProbability = 0;
 
-    // Loop through the options and select based on the random number
+    // Find the selected option based on random number
+    let selectedOption = null;
     for (let i = 0; i < options.length; i++) {
         cumulativeProbability += options[i].probability;
         if (random < cumulativeProbability) {
-            // Display only one selected result
-            document.getElementById("result").textContent = options[i].text;
+            selectedOption = options[i];
             break;
         }
     }
-}
+
+    // Create the result HTML
+    let resultHtml = `<h2>${selectedOption.text}</h2>`;
+    
+    // If the selected option has a nested table, add it to the result HTML
+    if (selectedOption.hasNestedTable && selectedOption.nestedTable) {
+        resultHtml += `<table border="1"><tr><th>Detail</th><th>Value</th></tr>`;
+        selectedOption.nestedTable.forEach(row =>
