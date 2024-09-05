@@ -1,8 +1,3 @@
-You’re right, let’s ensure the `script.js` script includes all necessary functionality and integrates the bonus skill correctly.
-
-### Complete `script.js`:
-
-```javascript
 // Add event listeners for each button
 document.getElementById("generatePawnButton").addEventListener("click", () => genText("Pawn", "pawnResult"));
 document.getElementById("generateBishopButton").addEventListener("click", () => genText("Bishop", "bishopResult"));
