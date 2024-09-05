@@ -100,28 +100,29 @@ function generateText(talismanType, resultElementId) {
     }
 
     // Create the result HTML
-    let resultHtml = `<h2>${selectedTier.text}</h2>`;
+    let resultHtml = `<h3>${selectedTier.text}</h3>`;
     
     // Generate a random item from the selected tier's table and add level information
     if (selectedTier) {
         let tierItems = tierTables[selectedTier.text];
         let itemIndex = Math.floor(Math.random() * tierItems.length);
         let item = tierItems[itemIndex];
-        
+    
         // Determine the level
         let level = selectedTier.level ? (Math.random() < 0.12 ? 2 : 1) : 1;
-        item += ` - ${level}`;
-        
-        resultHtml += `<p>Main Skill: ${item}</p>`;
+    item += ` - ${level}`;
+
+    resultHtml += `<p><strong>Main Skill:</strong> ${item}</p>`;
     }
-    
-    // Add bonus skills for Knight, Rook, Queen, and King
+
+// Add bonus skills for Knight, Rook, Queen, and King
     if (talismanType === "Knight" || talismanType === "Rook" || talismanType === "Queen" || talismanType === "King") {
         const bonusSkills = ["Bonus 1", "Bonus 2", "Bonus 3", "Bonus 4", "Bonus 5", "Bonus 6", "Bonus 7"];
         let bonusIndex = Math.floor(Math.random() * bonusSkills.length);
         let bonus = bonusSkills[bonusIndex];
-        resultHtml += `<p>Bonus Skill: ${bonus}</p>`;
+        resultHtml += `<p><strong>Bonus Skill:</strong> ${bonus}</p>`;
     }
+
     
     // Insert the result HTML into the specified placeholder
     document.getElementById(resultElementId).innerHTML = resultHtml;
