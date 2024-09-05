@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Text Generator</h1>
+    
     <button id="generatePawnButton">Generate Pawn Talisman</button>
     <div id="pawnResult"></div>
 
