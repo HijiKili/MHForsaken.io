@@ -49,41 +49,41 @@ const tierTables = {
 
 // Define probabilities for each talisman type
 const probabilities = {
-    "Pawn": [
-        { text: "Tier 1", probability: 85, level: true },
-        { text: "Tier 2", probability: 10, level: false },
-        { text: "Tier 3", probability: 5, level: false }
-    ],
-    "Bishop": [
-        { text: "Tier 1", probability: 68, level: true },
-        { text: "Tier 2", probability: 20, level: false },
-        { text: "Tier 3", probability: 12, level: false }
-    ],
-    "Knight": [
-        { text: "Tier 1", probability: 75, level: true },
-        { text: "Tier 2", probability: 15, level: false },
-        { text: "Tier 3", probability: 10, level: false }
-    ],
-    "Rook": [
-        { text: "Tier 1", probability: 70, level: true },
-        { text: "Tier 2", probability: 20, level: false },
-        { text: "Tier 3", probability: 10, level: false }
-    ],
-    "Queen": [
-        { text: "Tier 1", probability: 60, level: true },
-        { text: "Tier 2", probability: 25, level: false },
-        { text: "Tier 3", probability: 15, level: false }
-    ],
-    "King": [
-        { text: "Tier 1", probability: 55, level: true },
-        { text: "Tier 2", probability: 25, level: false },
-        { text: "Tier 3", probability: 20, level: false }
-    ]
+    "Pawn": {
+        "Tier 1": { probability: 95, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 }},
+        "Tier 2": { probability: 5, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 }},
+        "Tier 3": { probability: 0, levels: { "Lv.1": 100 }}
+    },
+    "Bishop": {
+        "Tier 1": { probability: 68, levels: { "Lv.1": 95, "Lv.2": 5 }},
+        "Tier 2": { probability: 32, levels: { "Lv.1": 100 }},
+        "Tier 3": { probability: 0, levels: { "Lv.1": 100 }}
+    },
+    "Knight": {
+        "Tier 1": { probability: 51, levels: { "Lv.1": 83, "Lv.2": 12, "Lv.3": 5 }},
+        "Tier 2": { probability: 57, levels: { "Lv.1": 95, "Lv.2": 5 }},
+        "Tier 3": { probability: 2, levels: { "Lv.1": 100 }}
+    },
+    "Rook": {
+        "Tier 1": { probability: 20, levels: { "Lv.1": 61, "Lv.2": 27, "Lv.3": 12 }},
+        "Tier 2": { probability: 63, levels: { "Lv.1": 83, "Lv.2": 17 }},
+        "Tier 3": { probability: 17, levels: { "Lv.1": 100 }}
+    },
+    "Queen": {
+        "Tier 1": { probability: 9, levels: { "Lv.1": 24, "Lv.2": 49, "Lv.3": 27 }},
+        "Tier 2": { probability: 49, levels: { "Lv.1": 69, "Lv.2": 27 }},
+        "Tier 3": { probability: 42, levels: { "Lv.1": 100 }}
+    },
+    "King": {
+        "Tier 1": { probability: 1, levels: { "Lv.1": 0, "Lv.2": 61, "Lv.3": 39 }},
+        "Tier 2": { probability: 43, levels: { "Lv.1": 55, "Lv.2": 45 }},
+        "Tier 3": { probability: 56, levels: { "Lv.1": 100 }}
+    }
 };
 
 function generateText(talismanType, resultElementId) {
     // Get the probabilities for the selected talisman type
-    const selectedProbabilities = probabilities[talismanType];
+    const talismanProbabilities = probabilities[talismanType];
 
     // Generate a random number between 0 and 100
     let random = Math.random() * 100;
@@ -91,26 +91,41 @@ function generateText(talismanType, resultElementId) {
 
     // Find the selected tier based on the random number
     let selectedTier = null;
-    for (let i = 0; i < selectedProbabilities.length; i++) {
-        cumulativeProbability += selectedProbabilities[i].probability;
+    for (const [tier, data] of Object.entries(talismanProbabilities)) {
+        cumulativeProbability += data.probability;
         if (random < cumulativeProbability) {
-            selectedTier = selectedProbabilities[i];
+            selectedTier = tier;
             break;
         }
     }
 
     // Create the result HTML
-    let resultHtml = `<h2>${selectedTier.text}</h2>`;
+    let resultHtml = `<h2>${selectedTier}</h2>`;
     
     // Generate a random item from the selected tier's table and add level information
     if (selectedTier) {
-        let tierItems = tierTables[selectedTier.text];
+        let tierItems = tierTables[selectedTier];
         let itemIndex = Math.floor(Math.random() * tierItems.length);
         let item = tierItems[itemIndex];
         
-        // Determine the level
-        let level = selectedTier.level ? (Math.random() < 0.12 ? 2 : 1) : 1;
-        item += ` - Lv.${level}`;
+        // Determine the level based on the tier probabilities
+        const levels = talismanProbabilities[selectedTier].levels;
+        let levelKeys = Object.keys(levels);
+        let levelProbabilities = levelKeys.map(key => levels[key]);
+        let totalProbability = levelProbabilities.reduce((a, b) => a + b, 0);
+        let levelRandom = Math.random() * totalProbability;
+        let cumulativeLevelProbability = 0;
+        let selectedLevel = "Lv.1";
+        
+        for (let i = 0; i < levelKeys.length; i++) {
+            cumulativeLevelProbability += levelProbabilities[i];
+            if (levelRandom < cumulativeLevelProbability) {
+                selectedLevel = levelKeys[i];
+                break;
+            }
+        }
+
+        item += ` - ${selectedLevel}`;
         
         resultHtml += `<p>${item}</p>`;
     }
