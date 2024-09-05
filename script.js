@@ -1,15 +1,45 @@
 document.getElementById("generateButton").addEventListener("click", generateText);
 
 function generateText() {
-    // Define options and percentages with nested levels for one option
+    // Define the options with their respective percentages and lists of text
     const options = [
-        { text: "Text Option 1", probability: 30, hasLevels: true, levels: [
-            "Skill A - Lv 1",
-            "Skill A - Lv 2",
-            "Skill A - Lv 3"
-        ]},
-        { text: "Text Option 2", probability: 50, hasLevels: false },
-        { text: "Text Option 3", probability: 20, hasLevels: false }
+        { 
+            text: "Option A", 
+            probability: 95, 
+            items: [
+                "Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack",
+                "Poison Res", "Paralysis Res", "Sleep Res", "Stun Res", "Webbed Res",
+                "Snow Res", "Bleeding Res", "Blast Res", "Defense Lock", "Resistance Lock",
+                "Blast Attack", "Poison Attack", "Paralysis Attack", "Sleep Attack", "Slugger",
+                "Stamina Thief", "Water Res", "Thunder Res", "Ice Res", "Dragon Res",
+                "Water Attack", "Thunder Attack", "Ice Attack", "Dragon Attack", "Defense Boost",
+                "Normal Ammo+", "Pierce Ammo+", "Shrapnel Ammo+", "Spread Ammo+", "Basic Shot+",
+                "Power Shot+", "Arc Shot+", "Quick Sheath", "Sheath Sharpen", "Speed Sharpen",
+                "Bombardier", "Bomb Master", "Heavy Sieger", "Flinch Free", "Botanist",
+                "Geologist", "Entomologist", "Charm Chaser", "Stamina Cap Up", "Stamina Recovery",
+                "Endurance Runner", "Cliffhanger", "Transporter", "Intimidator", "Mounting Master",
+                "Provoker", "Stealth", "Anti-Theft", "Speed Eating", "Free Meal", "Combine Pro",
+                "Item Prolonger", "Wide-Range", "Palico Rally", "Palico Mechanic", "Palico Leader",
+                "Followed with \"+1\""
+            ]
+        },
+        { 
+            text: "Option B", 
+            probability: 5, 
+            items: [
+                "Gourmand", "Blight Res", "Attack Boost", "Expert", "Destroyer",
+                "Airborne", "Critical Boost", "Critical Draw", "Repeat Offender", "Critical Element",
+                "Critical Status", "Power Charger", "Charge Master", "Power Focus", "Power Prolonger",
+                "Agitator", "Elemancy", "Fortify", "Latent Power", "Max Might", "Peak Performance",
+                "Potential", "Resentment", "Coalescence", "Special Ammo+", "Artillery",
+                "Counter Window", "Edge Guard", "Horn Maestro", "Kinsect Boost", "Load Shells",
+                "Offensive Guard", "Rapid Morp", "Reflection Guard", "Reload Sheath", "Dodge Sharpen",
+                "Earplug", "Tremor Res", "Windproof", "Wave Guard", "Deep Mobility",
+                "Heat Guard", "Cold Proof", "Virus Vaccine", "Endemic Master", "Endemic Prolonger",
+                "Master Gatherer", "Evasion", "Evade Distance", "Leap of Faith", "Constitution",
+                "Marathon Runner", "Rapid Jump", "Followed with \"+1\""
+            ]
+        }
     ];
 
     // Generate a random number between 0 and 100
@@ -29,11 +59,10 @@ function generateText() {
     // Create the result HTML
     let resultHtml = `<h2>${selectedOption.text}</h2>`;
     
-    // If the selected option has levels, add a random level to the result HTML
-    if (selectedOption.hasLevels && selectedOption.levels) {
-        // Generate a random index for levels
-        let levelIndex = Math.floor(Math.random() * selectedOption.levels.length);
-        resultHtml += `<p>${selectedOption.levels[levelIndex]}</p>`;
+    // Generate a random item from the selected option
+    if (selectedOption.items) {
+        let itemIndex = Math.floor(Math.random() * selectedOption.items.length);
+        resultHtml += `<p>${selectedOption.items[itemIndex]}</p>`;
     }
     
     // Insert the result HTML into the placeholder
