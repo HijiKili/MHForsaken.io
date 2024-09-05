@@ -48,40 +48,6 @@ const tables = {
 // Define the custom probabilities for each talisman
 const talismanProbabilities = {
     "Pawn": {
-        "Tier 1": { chance: 95, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
-        "Tier 2": { chance: 5, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
-        "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
-    },
-    "Bishop": {
-        "Tier 1": { chance: 68, levels: { "Lv.1": 95, "Lv.2": 5 } },
-        "Tier 2": { chance: 32, levels: { "Lv.1": 100 } },
-        "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
-    },
-    "Knight": {
-        "Tier 1": { chance: 51, levels: { "Lv.1": 83, "Lv.2": 12, "Lv.3": 5 } },
-        "Tier 2": { chance: 57, levels: { "Lv.1": 95, "Lv.2": 5 } },
-        "Tier 3": { chance: 2, levels: { "Lv.1": 100 } }
-    },
-    "Rook": {
-        "Tier 1": { chance: 20, levels: { "Lv.1": 61, "Lv.2": 27, "Lv.3": 12 } },
-        "Tier 2": { chance: 63, levels: { "Lv.1": 83, "Lv.2": 17 } },
-        "Tier 3": { chance: 17, levels: { "Lv.1": 100 } }
-    },
-    "Queen": {
-        "Tier 1": { chance: 9, levels: { "Lv.1": 24, "Lv.2": 49, "Lv.3": 27 } },
-        "Tier 2": { chance: 49, levels: { "Lv.1": 69, "Lv.2": 27 } },
-        "Tier 3": { chance: 42, levels: { "Lv.1": 100 } }
-    },
-    "King": {
-        "Tier 1": { chance: 1, levels: { "Lv.1": 0, "Lv.2": 61, "Lv.3": 39 } },
-        "Tier 2": { chance: 43, levels: { "Lv.1": 55, "Lv.2": 45 } },
-        "Tier 3": { chance: 56, levels: { "Lv.1": 100 } }
-    }
-};
-
-// Define the custom probabilities for each talisman
-const talismanProbabilities = {
-    "Pawn": {
         "Tier 1": { chance: 95, levels: { "1": 100, "2": 0, "3": 0 } },
         "Tier 2": { chance: 5, levels: { "1": 100, "2": 0, "3": 0 } },
         "Tier 3": { chance: 0, levels: { "1": 100 } }
@@ -119,10 +85,17 @@ const bonusSkills = [
     "Bonus Skill 4", "Bonus Skill 5", "Bonus Skill 6", "Bonus Skill 7"
 ];
 
+// Define skill tables
+const tables = {
+    "Tier 1": ["Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack", /* ... more skills */],
+    "Tier 2": ["Gourmand", "Blight Res", "Attack Boost", "Expert", "Destroyer", /* ... more skills */],
+    "Tier 3": ["Element Adaptor", "Elderseal Boost", "Bludgeoner", "Weakness Exploit", /* ... more skills */]
+};
+
 // Function to generate text based on the talisman type and show results in the specified result container
 function genText(type, resultId) {
     const resultContainer = document.getElementById(resultId);
-    const mainSkill = getRandomSkill(type, "Main Skill");
+    const mainSkill = getRandomSkill(type);
     const bonusSkillsHTML = getBonusSkills(type);
 
     resultContainer.innerHTML = `
@@ -133,7 +106,7 @@ function genText(type, resultId) {
 }
 
 // Function to get a random skill from the selected tier
-function getRandomSkill(type, skillType) {
+function getRandomSkill(type) {
     const probabilities = talismanProbabilities[type];
     const tier = getRandomTier(probabilities);
     const skill = tables[tier][Math.floor(Math.random() * tables[tier].length)];
@@ -190,5 +163,6 @@ function getBonusSkills(type) {
     }
     return '';
 }
+
 
 
