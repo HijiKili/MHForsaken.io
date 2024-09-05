@@ -1,3 +1,4 @@
+// Add event listeners for each button
 document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn"));
 document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop"));
 document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight"));
@@ -59,25 +60,21 @@ const probabilities = {
         { text: "Tier 3", probability: 12, level: false }
     ],
     "Knight": [
-        // Define probabilities for Knight
         { text: "Tier 1", probability: 75, level: true },
         { text: "Tier 2", probability: 15, level: false },
         { text: "Tier 3", probability: 10, level: false }
     ],
     "Rook": [
-        // Define probabilities for Rook
         { text: "Tier 1", probability: 70, level: true },
         { text: "Tier 2", probability: 20, level: false },
         { text: "Tier 3", probability: 10, level: false }
     ],
     "Queen": [
-        // Define probabilities for Queen
         { text: "Tier 1", probability: 60, level: true },
         { text: "Tier 2", probability: 25, level: false },
         { text: "Tier 3", probability: 15, level: false }
     ],
     "King": [
-        // Define probabilities for King
         { text: "Tier 1", probability: 55, level: true },
         { text: "Tier 2", probability: 25, level: false },
         { text: "Tier 3", probability: 20, level: false }
