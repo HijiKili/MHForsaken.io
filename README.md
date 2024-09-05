@@ -13,7 +13,7 @@
     <button id="generateButton">Generate Text</button>
     
     <!-- Placeholder for generated result -->
-    <p id="result"></p>
+    <div id="result"></div>
 
     <script src="script.js"></script>
 </body>
