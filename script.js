@@ -1,14 +1,15 @@
 document.getElementById("generateButton").addEventListener("click", generateText);
 
 function generateText() {
-    // Define options and percentages with nested table for one option
+    // Define options and percentages with nested levels for one option
     const options = [
-        { text: "Text Option 1", probability: 30, hasNestedTable: true, nestedTable: [
-            { detail: "Detail 1.1", value: "Value 1.1" },
-            { detail: "Detail 1.2", value: "Value 1.2" }
+        { text: "Text Option 1", probability: 30, hasLevels: true, levels: [
+            "Skill A - Lv 1",
+            "Skill A - Lv 2",
+            "Skill A - Lv 3"
         ]},
-        { text: "Text Option 2", probability: 50, hasNestedTable: false },
-        { text: "Text Option 3", probability: 20, hasNestedTable: false }
+        { text: "Text Option 2", probability: 50, hasLevels: false },
+        { text: "Text Option 3", probability: 20, hasLevels: false }
     ];
 
     // Generate a random number between 0 and 100
@@ -28,13 +29,11 @@ function generateText() {
     // Create the result HTML
     let resultHtml = `<h2>${selectedOption.text}</h2>`;
     
-    // If the selected option has a nested table, add it to the result HTML
-    if (selectedOption.hasNestedTable && selectedOption.nestedTable) {
-        resultHtml += `<table border="1"><tr><th>Detail</th><th>Value</th></tr>`;
-        selectedOption.nestedTable.forEach(row => {
-            resultHtml += `<tr><td>${row.detail}</td><td>${row.value}</td></tr>`;
-        });
-        resultHtml += `</table>`;
+    // If the selected option has levels, add a random level to the result HTML
+    if (selectedOption.hasLevels && selectedOption.levels) {
+        // Generate a random index for levels
+        let levelIndex = Math.floor(Math.random() * selectedOption.levels.length);
+        resultHtml += `<p>${selectedOption.levels[levelIndex]}</p>`;
     }
     
     // Insert the result HTML into the placeholder
