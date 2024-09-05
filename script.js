@@ -4,7 +4,7 @@ function generateText() {
     // Define the options with their respective percentages and lists of text
     const options = [
         { 
-            text: "Option A", 
+            text: "Tier 1", 
             probability: 95, 
             items: [
                 "Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack",
@@ -19,12 +19,11 @@ function generateText() {
                 "Geologist", "Entomologist", "Charm Chaser", "Stamina Cap Up", "Stamina Recovery",
                 "Endurance Runner", "Cliffhanger", "Transporter", "Intimidator", "Mounting Master",
                 "Provoker", "Stealth", "Anti-Theft", "Speed Eating", "Free Meal", "Combine Pro",
-                "Item Prolonger", "Wide-Range", "Palico Rally", "Palico Mechanic", "Palico Leader",
-                "Followed with \"+1\""
+                "Item Prolonger", "Wide-Range", "Palico Rally", "Palico Mechanic", "Palico Leader"
             ]
         },
         { 
-            text: "Option B", 
+            text: "Tier 2", 
             probability: 5, 
             items: [
                 "Gourmand", "Blight Res", "Attack Boost", "Expert", "Destroyer",
@@ -37,7 +36,7 @@ function generateText() {
                 "Earplug", "Tremor Res", "Windproof", "Wave Guard", "Deep Mobility",
                 "Heat Guard", "Cold Proof", "Virus Vaccine", "Endemic Master", "Endemic Prolonger",
                 "Master Gatherer", "Evasion", "Evade Distance", "Leap of Faith", "Constitution",
-                "Marathon Runner", "Rapid Jump", "Followed with \"+1\""
+                "Marathon Runner", "Rapid Jump"
             ]
         }
     ];
@@ -59,10 +58,18 @@ function generateText() {
     // Create the result HTML
     let resultHtml = `<h2>${selectedOption.text}</h2>`;
     
-    // Generate a random item from the selected option
+    // Generate a random item from the selected option and add level information
     if (selectedOption.items) {
         let itemIndex = Math.floor(Math.random() * selectedOption.items.length);
-        resultHtml += `<p>${selectedOption.items[itemIndex]}</p>`;
+        let item = selectedOption.items[itemIndex];
+        
+        // Add a random level (1 through 3) if the selected option is "Tier 1"
+        if (selectedOption.text === "Tier 1") {
+            let level = Math.floor(Math.random() * 3) + 1; // Levels from 1 to 3
+            item += ` - Lv.${level}`;
+        }
+        
+        resultHtml += `<p>${item}</p>`;
     }
     
     // Insert the result HTML into the placeholder
