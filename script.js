@@ -31,4 +31,12 @@ function generateText() {
     // If the selected option has a nested table, add it to the result HTML
     if (selectedOption.hasNestedTable && selectedOption.nestedTable) {
         resultHtml += `<table border="1"><tr><th>Detail</th><th>Value</th></tr>`;
-        selectedOption.nestedTable.forEach(row =>
+        selectedOption.nestedTable.forEach(row => {
+            resultHtml += `<tr><td>${row.detail}</td><td>${row.value}</td></tr>`;
+        });
+        resultHtml += `</table>`;
+    }
+    
+    // Insert the result HTML into the placeholder
+    document.getElementById("result").innerHTML = resultHtml;
+}
