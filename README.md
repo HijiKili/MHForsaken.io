@@ -7,6 +7,20 @@
 
 <h2>Talisman Generator</h2>
 
+<h3>Mystery Charm</h3>
+<button type="button" >Pawn Talisman</button>
+
+<button type="button" >Bishop Talisman</button>
+
+<h3>Shining Charm</h3>
+<button type="button" >Knight Talisman</button>
+
+<button type="button" >Rook Talisman</button>
+
+<h3>Timeworn Charm</h3>
+<button type="button" >Queen Talisman</button>
+
+<button type="button" >King Talisman</button>
 
 
 
