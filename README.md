@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Generator</title>
     <link rel="stylesheet" href="styles.css"> <!-- Optional for styling -->
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            display: block;
+            margin: 10px 0;
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 14px; /* Smaller font size */
+        }
+    </style>
 </head>
 <body>
     <h1>Text Generator</h1>
