@@ -15,6 +15,34 @@ const familyBonusLevels = [
     "Wilderness"
 ];
 
+// Define bonus probabilities for each talisman
+const bonusProbabilities = {
+    "Knight": {
+        "Skill Bonus": 3,
+        "Family Bonus": 0,
+        "Slot Bonus": 11,
+        "Nothing": 86
+    },
+    "Rook": {
+        "Skill Bonus": 7,
+        "Family Bonus": 4,
+        "Slot Bonus": 25,
+        "Nothing": 64
+    },
+    "Queen": {
+        "Skill Bonus": 11,
+        "Family Bonus": 10,
+        "Slot Bonus": 42,
+        "Nothing": 37
+    },
+    "King": {
+        "Skill Bonus": 39,
+        "Family Bonus": 46,
+        "Slot Bonus": 12,
+        "Nothing": 3
+    }
+};
+
 // Function to update bonus result
 function updateBonus(talismanType, bonusResultElementId) {
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
@@ -58,3 +86,20 @@ function getRandomFamilyBonusLevel() {
     const randomIndex = Math.floor(Math.random() * familyBonusLevels.length);
     return familyBonusLevels[randomIndex];
 }
+
+// Event listeners for each button
+document.getElementById('generateKnightButton').addEventListener('click', function() {
+    updateBonus('Knight', 'knightBonus');
+});
+
+document.getElementById('generateRookButton').addEventListener('click', function() {
+    updateBonus('Rook', 'rookBonus');
+});
+
+document.getElementById('generateQueenButton').addEventListener('click', function() {
+    updateBonus('Queen', 'queenBonus');
+});
+
+document.getElementById('generateKingButton').addEventListener('click', function() {
+    updateBonus('King', 'kingBonus');
+});
