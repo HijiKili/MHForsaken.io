@@ -64,3 +64,20 @@ function getOneBonus(bonusProbabilities) {
     }
     return null;
 }
+
+// Event listeners for each button
+document.getElementById('generateKnightButton').addEventListener('click', function() {
+    updateBonus('Knight', 'knightBonus');
+});
+
+document.getElementById('generateRookButton').addEventListener('click', function() {
+    updateBonus('Rook', 'rookBonus');
+});
+
+document.getElementById('generateQueenButton').addEventListener('click', function() {
+    updateBonus('Queen', 'queenBonus');
+});
+
+document.getElementById('generateKingButton').addEventListener('click', function() {
+    updateBonus('King', 'kingBonus');
+});
