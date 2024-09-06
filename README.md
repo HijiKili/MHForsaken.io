@@ -35,6 +35,7 @@
     <br>    
     <!-- Shining Charm -->
     <h3 style="background-color: #B7982A; color: black;">Shining Charm</h3>
+    <p>To reduce the crazy RNG from the Second Skill drop rate. You first need to generate the skill from the Mystery Charm. The 2nd Skill for the Knight Talisman will copy from the Pawn Talisman, while The Rook Talisman will copy from the Bishop Talisman. You must generate the Mystery Charm before obtaining the 2nd skill for the Shining Charm!</p>
     <table style="width: 50%;">
         <tr>
             <th class="type" style="width: 20%;">Type</th>
@@ -61,6 +62,7 @@
     <br>    
     <!-- Timeworn Charm -->
     <h3 style="background-color: #752414; color: white;">Timeworn Charm</h3>
+    <p>To reduce the crazy RNG from the Second Skill drop rate. You first need to generate the skill from the Shining Charm. The 2nd Skill for the Queen Talisman will copy the existing Knight Talisman, while The King Talisman will copy from the Rook Talisman. You must generate the Shining Charm before obtaining the 2nd skill for the Timeworn Charm!</p>
     <table style="width: 50%;">
         <tr>
             <th class="type" style="width: 20%;">Type</th>
