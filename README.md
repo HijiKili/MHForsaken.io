@@ -22,6 +22,7 @@
             margin-top: 10px;
         }
         .result {
+            width: 100%;
             margin-top: 10px;
             padding: 10px;
             border: 1px solid #ddd;
