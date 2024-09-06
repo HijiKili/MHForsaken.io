@@ -79,9 +79,8 @@
             <td class="result" id="kingResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell">
-                <button id="generateKingButton">Praise</button></td>
-                <td id="kingBonus">Bonus will be displayed here</td>
+            <td class="button-cell"><button id="generateKingButton">Praise</button></td>
+            <td id="kingBonus">Bonus will be displayed here</td>
         </tr>
     </table>    
     <script src="MainSkillRandom.js"></script>
