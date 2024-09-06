@@ -1,101 +1,45 @@
-// Add event listeners for each button
-document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn", "pawnResult"));
-document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop", "bishopResult"));
-document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight", "knightResult"));
-document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook", "rookResult"));
-document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen", "queenResult"));
-document.getElementById("generateKingButton").addEventListener("click", () => generateText("King", "kingResult"));
-
-// Define talisman probabilities for tiers and levels
-const talismanProbabilities = {
-    "Pawn": {
-        "Tier 1": { chance: 95, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
-        "Tier 2": { chance: 5, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
-        "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
-    },
-    "Bishop": {
-        "Tier 1": { chance: 68, levels: { "Lv.1": 95, "Lv.2": 5 } },
-        "Tier 2": { chance: 32, levels: { "Lv.1": 100 } },
-        "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
-    },
-    "Knight": {
-        "Tier 1": { chance: 51, levels: { "Lv.1": 83, "Lv.2": 12, "Lv.3": 5 } },
-        "Tier 2": { chance: 57, levels: { "Lv.1": 95, "Lv.2": 5 } },
-        "Tier 3": { chance: 2, levels: { "Lv.1": 100 } }
-    },
-    "Rook": {
-        "Tier 1": { chance: 20, levels: { "Lv.1": 61, "Lv.2": 27, "Lv.3": 12 } },
-        "Tier 2": { chance: 63, levels: { "Lv.1": 83, "Lv.2": 17 } },
-        "Tier 3": { chance: 17, levels: { "Lv.1": 100 } }
-    },
-    "Queen": {
-        "Tier 1": { chance: 9, levels: { "Lv.1": 24, "Lv.2": 49, "Lv.3": 27 } },
-        "Tier 2": { chance: 49, levels: { "Lv.1": 69, "Lv.2": 27 } },
-        "Tier 3": { chance: 42, levels: { "Lv.1": 100 } }
-    },
-    "King": {
-        "Tier 1": { chance: 1, levels: { "Lv.1": 0, "Lv.2": 61, "Lv.3": 39 } },
-        "Tier 2": { chance: 43, levels: { "Lv.1": 55, "Lv.2": 45 } },
-        "Tier 3": { chance: 56, levels: { "Lv.1": 100 } }
-    }
-};
-
-// Generate a random text based on talisman type
-function generateText(talismanType, resultElementId) {
-    const selectedProbabilities = talismanProbabilities[talismanType];
-
-    // Generate a random number to select the tier
-    let random = Math.random() * 100;
-    let cumulativeProbability = 0;
-    let selectedTier = null;
-
-    for (const [tier, data] of Object.entries(selectedProbabilities)) {
-        cumulativeProbability += data.chance;
-        if (random < cumulativeProbability) {
-            selectedTier = tier;
-            break;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talisman Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
         }
-    }
-
-    // Create the result HTML
-    let resultHtml = `<h3>${selectedTier}</h3>`;
-
-    if (selectedTier) {
-        // Get a random skill from the selected tier's table
-        let tierItems = tierTables[selectedTier];
-        let itemIndex = Math.floor(Math.random() * tierItems.length);
-        let item = tierItems[itemIndex];
-
-        // Determine the level based on probabilities
-        let levelProbabilities = selectedProbabilities[selectedTier].levels;
-        let level = getRandomLevel(levelProbabilities);
-
-        // Display the skill and its level
-        item += ` - ${level}`;
-        resultHtml += `<p><strong>Main Skill:</strong> ${item}</p>`;
-    }
-
-    // Add bonus skills for Knight, Rook, Queen, and King
-    if (talismanType === "Knight" || talismanType === "Rook" || talismanType === "Queen" || talismanType === "King") {
-        const bonusSkills = ["Bonus 1", "Bonus 2", "Bonus 3", "Bonus 4", "Bonus 5", "Bonus 6", "Bonus 7"];
-        let bonusIndex = Math.floor(Math.random() * bonusSkills.length);
-        let bonus = bonusSkills[bonusIndex];
-        resultHtml += `<p><strong>Bonus Skill:</strong> ${bonus}</p>`;
-    }
-
-    // Insert the result HTML into the specified placeholder
-    document.getElementById(resultElementId).innerHTML = resultHtml;
-}
-
-// Helper function to select the random level based on probabilities
-function getRandomLevel(levelProbabilities) {
-    let random = Math.random() * 100;
-    let cumulative = 0;
-    for (const [level, chance] of Object.entries(levelProbabilities)) {
-        cumulative += chance;
-        if (random < cumulative) {
-            return level;
+        button {
+            display: block;
+            margin: 10px 0;
         }
-    }
-    return "Lv.1"; // Default to Lv.1 if no match
-}
+        .result {
+            margin-top: 10px;
+            font-size: 14px; /* Smaller font size */
+        }
+    </style>
+</head>
+<body>
+    <h1>Talisman Generator</h1>
+
+    <!-- Buttons for each talisman type -->
+    <button id="generatePawnButton">Generate Pawn Talisman</button>
+    <div id="pawnResult" class="result"></div>
+
+    <button id="generateBishopButton">Generate Bishop Talisman</button>
+    <div id="bishopResult" class="result"></div>
+
+    <button id="generateKnightButton">Generate Knight Talisman</button>
+    <div id="knightResult" class="result"></div>
+
+    <button id="generateRookButton">Generate Rook Talisman</button>
+    <div id="rookResult" class="result"></div>
+
+    <button id="generateQueenButton">Generate Queen Talisman</button>
+    <div id="queenResult" class="result"></div>
+
+    <button id="generateKingButton">Generate King Talisman</button>
+    <div id="kingResult" class="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
