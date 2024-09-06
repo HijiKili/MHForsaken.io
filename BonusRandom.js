@@ -5,7 +5,7 @@ const familyBonusLevels = [
     "Bonefied",
     "Brute Wyvern",
     "Carapaceon",
-    "Ancient",  // Replaced "Elder Dragon" with "Ancient"
+    "Ancient",
     "Fanged Beast",
     "Flying Wyvern",
     "Orenite",
@@ -51,12 +51,46 @@ const slotBonusProbabilities = {
     "King": { 1: 32, 2: 52, 3: 17 }
 };
 
+// Define talisman probabilities for Main Skill (Skill Bonus)
+const talismanProbabilities = {
+    "Pawn": {
+        "Tier 1": { chance: 95, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
+        "Tier 2": { chance: 5, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
+        "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
+    },
+    "Bishop": {
+        "Tier 1": { chance: 68, levels: { "Lv.1": 95, "Lv.2": 5 } },
+        "Tier 2": { chance: 32, levels: { "Lv.1": 100 } },
+        "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
+    },
+    "Knight": {
+        "Tier 1": { chance: 51, levels: { "Lv.1": 83, "Lv.2": 12, "Lv.3": 5 } },
+        "Tier 2": { chance: 57, levels: { "Lv.1": 95, "Lv.2": 5 } },
+        "Tier 3": { chance: 2, levels: { "Lv.1": 100 } }
+    },
+    "Rook": {
+        "Tier 1": { chance: 20, levels: { "Lv.1": 61, "Lv.2": 27, "Lv.3": 12 } },
+        "Tier 2": { chance: 63, levels: { "Lv.1": 83, "Lv.2": 17 } },
+        "Tier 3": { chance: 17, levels: { "Lv.1": 100 } }
+    },
+    "Queen": {
+        "Tier 1": { chance: 9, levels: { "Lv.1": 24, "Lv.2": 49, "Lv.3": 27 } },
+        "Tier 2": { chance: 49, levels: { "Lv.1": 69, "Lv.2": 27 } },
+        "Tier 3": { chance: 42, levels: { "Lv.1": 100 } }
+    },
+    "King": {
+        "Tier 1": { chance: 1, levels: { "Lv.1": 0, "Lv.2": 61, "Lv.3": 39 } },
+        "Tier 2": { chance: 43, levels: { "Lv.1": 55, "Lv.2": 45 } },
+        "Tier 3": { chance: 56, levels: { "Lv.1": 100 } }
+    }
+};
+
 // Map of skill bonus sources for each talisman
 const skillBonusSources = {
-    "Knight": "pawnResult",
-    "Rook": "bishopResult",
-    "Queen": "knightResult",
-    "King": "rookResult"
+    "Knight": "Pawn",
+    "Rook": "Bishop",
+    "Queen": "Knight",
+    "King": "Rook"
 };
 
 // Function to update bonus result
@@ -106,29 +140,37 @@ function getOneBonus(bonusProbabilities, talismanType) {
 }
 
 // Function to get a Skill Bonus result using talisman probabilities
-function getSkillBonusResult(resultId) {
-    const element = document.getElementById(resultId);
-    return element ? element.textContent || "N/A" : "N/A"; // Fallback if no result is available
+function getSkillBonusResult(talismanType) {
+    const probabilities = talismanProbabilities[talismanType];
+    const selectedTier = selectTier(probabilities);
+    const selectedLevel = selectLevel(probabilities[selectedTier].levels);
+    return `${selectedTier} - ${selectedLevel}`;
 }
 
-// Helper function to get a random Family Bonus level
-function getRandomFamilyBonusLevel() {
-    const randomIndex = Math.floor(Math.random() * familyBonusLevels.length);
-    return familyBonusLevels[randomIndex];
-}
-
-// Helper function to get a random Slot Bonus level based on talisman type
-function getRandomSlotBonusLevel(talismanType) {
-    const slotLevels = slotBonusProbabilities[talismanType];
+// Helper function to select a tier based on probabilities
+function selectTier(probabilities) {
     let random = Math.random() * 100;
     let cumulative = 0;
-    for (const [level, chance] of Object.entries(slotLevels)) {
+    for (const [tier, data] of Object.entries(probabilities)) {
+        cumulative += data.chance;
+        if (random < cumulative) {
+            return tier;
+        }
+    }
+    return "Tier 1"; // Default to Tier 1 if something goes wrong
+}
+
+// Helper function to select a level based on level probabilities
+function selectLevel(levels) {
+    let random = Math.random() * 100;
+    let cumulative = 0;
+    for (const [level, chance] of Object.entries(levels)) {
         cumulative += chance;
         if (random < cumulative) {
             return level;
         }
     }
-    return 1; // Default to 1 if something goes wrong
+    return "Lv.1"; // Default to Lv.1 if something goes wrong
 }
 
 // Event listeners for each button
