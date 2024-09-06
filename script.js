@@ -84,7 +84,7 @@ function generateText(talismanType, resultElementId) {
     let cumulativeProbability = 0;
     let selectedTier = null;
 
-    for (const [tier, data] of Object.entries(selectedProbabilities)) {
+    for (const [tier, data] of Object.entries(selectedProbabilities || {})) {
         cumulativeProbability += data.chance;
         if (random < cumulativeProbability) {
             selectedTier = tier;
@@ -93,15 +93,15 @@ function generateText(talismanType, resultElementId) {
     }
 
     // If no tier is selected, stop the function
-    if (!selectedTier) {
-        console.error("No tier selected");
+    if (!selectedTier || !selectedProbabilities[selectedTier]) {
+        console.error("No tier or probabilities found");
         return;
     }
 
     // Get a random skill from the selected tier's table
     let tierItems = tierTables[selectedTier];
-    let itemIndex = Math.floor(Math.random() * tierItems.length);
-    let item = tierItems[itemIndex];
+    let itemIndex = Math.floor(Math.random() * (tierItems ? tierItems.length : 0));
+    let item = tierItems ? tierItems[itemIndex] : "N/A";
 
     // Determine the level based on probabilities
     let levelProbabilities = selectedProbabilities[selectedTier].levels;
