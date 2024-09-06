@@ -156,3 +156,4 @@ function getOneBonus(bonuses) {
 
     return null; // If the random number doesn't match any bonus, return null
 }
+
