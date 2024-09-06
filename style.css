@@ -10,12 +10,14 @@ table {
 th {
     background-color: #ddd;
     padding: 10px;
+    border: none;
 }
 
 /* Data cell styles */
 td {
     padding: 10px;
     border: 1px solid #ddd;
+    border: none;
 }
 
 /* Table classes for different types */
