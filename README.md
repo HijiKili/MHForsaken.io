@@ -26,6 +26,7 @@
             padding: 10px;
             border: 1px solid #ddd;
             vertical-align: top;
+            rowsspan: 2;
         }
         .type {
             width: 20%;
