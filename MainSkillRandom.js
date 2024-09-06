@@ -1,8 +1,3 @@
-// MainSkillRandom.js
-export function generateText(source, result) {
-    // Implementation of the function
-}
-
 // Define tier tables for each tier
 const tierTables = {
     "Tier 1": ["Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack"],
@@ -44,16 +39,8 @@ const talismanProbabilities = {
     }
 };
 
-// Add event listeners for each button
-document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn", "pawnResult"));
-document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop", "bishopResult"));
-document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight", "knightResult"));
-document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook", "rookResult"));
-document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen", "queenResult"));
-document.getElementById("generateKingButton").addEventListener("click", () => generateText("King", "kingResult"));
-
 // Function to generate text based on talisman type
-function generateText(talismanType, resultElementId) {
+export function generateText(talismanType, resultElementId) {
     const selectedProbabilities = talismanProbabilities[talismanType];
 
     // Generate a random number to select the tier
