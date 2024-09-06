@@ -51,6 +51,14 @@ const skillBonusMappings = {
     "King": { result: "rookResult" }
 };
 
+// Define Slot Bonus level probabilities for each talisman
+const slotBonusProbabilities = {
+    "Knight": { 1: 67, 2: 33 },
+    "Rook": { 1: 54, 2: 42, 3: 4 },
+    "Queen": { 1: 43, 2: 47, 3: 10 },
+    "King": { 1: 32, 2: 52, 3: 17 }
+};
+
 // Helper function to get one bonus based on probabilities
 function getOneBonus(bonusProbabilities, talismanType) {
     let random = Math.random() * 100;
@@ -122,9 +130,17 @@ function updateBonus(talismanType, bonusResultElementId) {
         `;
 
         // Insert the bonus result HTML into the specified placeholder
-        document.getElementById(bonusResultElementId).innerHTML = bonusHtml;
+        const resultElement = document.getElementById(bonusResultElementId);
+        if (resultElement) {
+            resultElement.innerHTML = bonusHtml;
+        } else {
+            console.error(`Element with ID ${bonusResultElementId} not found.`);
+        }
     } else {
-        document.getElementById(bonusResultElementId).innerHTML = "N/A";
+        const resultElement = document.getElementById(bonusResultElementId);
+        if (resultElement) {
+            resultElement.innerHTML = "N/A";
+        }
     }
 }
 
