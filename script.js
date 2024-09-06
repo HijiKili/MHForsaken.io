@@ -54,8 +54,11 @@ function generateText(talismanType) {
     const tierData = probabilities[tier];
 
     // Determine level
-    const levels = Object.keys(tierData.levels);
-    const level = levels[Math.floor(Math.random() * levels.length)];
+    let level = "N/A";
+    if (tierData.levels) {
+        const levels = Object.keys(tierData.levels);
+        level = levels[Math.floor(Math.random() * levels.length)];
+    }
 
     // Determine main skill
     const tierItems = tierTables[tier];
