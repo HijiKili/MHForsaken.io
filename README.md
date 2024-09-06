@@ -53,7 +53,7 @@
             <td class="result" id="rookResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generateRookButton">Praise</button></td>
                 <td id="rookBonus">Bonus will be displayed here</td>
         </tr>
