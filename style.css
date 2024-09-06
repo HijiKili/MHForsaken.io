@@ -1,0 +1,58 @@
+/* General table styling */
+table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.result {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+/* Type column width */
+.type {
+    width: 20%;
+}
+
+/* Result column width */
+.result-cell {
+    width: 80%;
+}
+
+/* Center button text */
+.button-cell {
+    text-align: center;
+}
+
+/* Colors for different charm types */
+#mysteryCharm table {
+    background-color: #527061;
+    color: white;
+}
+
+#shiningCharm table {
+    background-color: #B7982A;
+    color: black;
+}
+
+#timewornCharm table {
+    background-color: #752414;
+    color: white;
+}
