@@ -26,6 +26,23 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
+        /* Fixed column widths */
+        .result table {
+            table-layout: fixed;
+        }
+        .result th, .result td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .result td:first-child {
+            width: 120px; /* Adjust width as needed */
+        }
+        .result td:nth-child(2) {
+            width: 200px; /* Adjust width as needed */
+        }
+        .result td:last-child {
+            width: 80px; /* Adjust width as needed */
+        }
     </style>
 </head>
 <body>
