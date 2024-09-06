@@ -23,6 +23,10 @@
         <tr>
             <td class="button-cell" colspan="2">
                 <button id="generatePawnButton">Praise</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <span id="pawnBonus">This talisman has no bonus</span>
             </td>
         </tr>
@@ -33,6 +37,10 @@
         <tr>
             <td class="button-cell" colspan="2">
                 <button id="generateBishopButton">Praise</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <span id="bishopBonus">This talisman has no bonus</span>
             </td>
         </tr>
