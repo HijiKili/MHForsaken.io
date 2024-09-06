@@ -1,4 +1,3 @@
-/* General table styling */
 table {
     width: 70%;
     border-collapse: collapse;
@@ -26,33 +25,29 @@ button {
     vertical-align: top;
 }
 
-/* Type column width */
 .type {
     width: 20%;
 }
 
-/* Result column width */
 .result-cell {
     width: 80%;
 }
 
-/* Center button text */
 .button-cell {
     text-align: center;
 }
 
-/* Colors for different charm types */
-#mysteryCharm table {
+.mystery-charm {
     background-color: #527061;
     color: white;
 }
 
-#shiningCharm table {
+.shining-charm {
     background-color: #B7982A;
-    color: black;
+    color: white;
 }
 
-#timewornCharm table {
+.timeworn-charm {
     background-color: #752414;
     color: white;
 }
