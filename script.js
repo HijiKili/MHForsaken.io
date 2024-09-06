@@ -50,17 +50,13 @@ document.getElementById("generateKingButton").addEventListener("click", () => ge
 // Function to generate text based on talisman type
 function generateText(talismanType, resultElementId) {
     const selectedProbabilities = talismanProbabilities[talismanType];
-    if (!selectedProbabilities) {
-        console.error("No probabilities found for talisman type:", talismanType);
-        return;
-    }
 
     // Generate a random number to select the tier
     let random = Math.random() * 100;
     let cumulativeProbability = 0;
     let selectedTier = null;
 
-    for (const [tier, data] of Object.entries(selectedProbabilities)) {
+    for (const [tier, data] of Object.entries(selectedProbabilities || {})) {
         cumulativeProbability += data.chance;
         if (random < cumulativeProbability) {
             selectedTier = tier;
@@ -68,15 +64,16 @@ function generateText(talismanType, resultElementId) {
         }
     }
 
-    if (!selectedTier) {
-        console.error("No tier selected.");
+    // If no tier is selected, stop the function
+    if (!selectedTier || !selectedProbabilities[selectedTier]) {
+        console.error("No tier or probabilities found");
         return;
     }
 
     // Get a random skill from the selected tier's table
     let tierItems = tierTables[selectedTier];
-    let itemIndex = Math.floor(Math.random() * tierItems.length);
-    let item = tierItems[itemIndex] || "N/A";
+    let itemIndex = Math.floor(Math.random() * (tierItems ? tierItems.length : 0));
+    let item = tierItems ? tierItems[itemIndex] : "N/A";
 
     // Determine the level based on probabilities
     let levelProbabilities = selectedProbabilities[selectedTier].levels;
@@ -90,7 +87,7 @@ function generateText(talismanType, resultElementId) {
                 <th>Main Skill</th>
                 <th>Level</th>
             </tr>
-            <tr> 
+            <tr>
                 <td>${selectedTier}</td>
                 <td>${item}</td>
                 <td>${level}</td>
