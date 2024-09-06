@@ -40,11 +40,32 @@ const talismanProbabilities = {
     }
 };
 
-// Define skill tables for each tier
-const tierTables = {
-    "Tier 1": ["Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack", /* add more */],
-    "Tier 2": ["Gourmand", "Blight Res", "Attack Boost", "Expert", "Destroyer", /* add more */],
-    "Tier 3": ["Element Adaptor", "Elderseal Boost", "Bludgeoner", "Weakness Exploit", /* add more */]
+// Define bonus probabilities for each talisman
+const bonusProbabilities = {
+    "Knight": {
+        "Skill Bonus": 3,
+        "Family Bonus": 0,
+        "Slot Bonus": 11,
+        "Nothing": 86
+    },
+    "Rook": {
+        "Skill Bonus": 7,
+        "Family Bonus": 4,
+        "Slot Bonus": 25,
+        "Nothing": 64
+    },
+    "Queen": {
+        "Skill Bonus": 11,
+        "Family Bonus": 10,
+        "Slot Bonus": 42,
+        "Nothing": 37
+    },
+    "King": {
+        "Skill Bonus": 39,
+        "Family Bonus": 46,
+        "Slot Bonus": 12,
+        "Nothing": 3
+    }
 };
 
 // Function to generate text based on talisman type
@@ -82,15 +103,16 @@ function generateText(talismanType, resultElementId) {
         resultHtml += `<p><strong>Main Skill:</strong> ${item}</p>`;
     }
 
-    // Add 3 bonus skills for Knight, Rook, Queen, and King
+    // Add bonus skills for Knight, Rook, Queen, and King based on bonus probabilities
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
-        const skillBonus = "Bonus 1";  // Placeholder value for skill bonus
-        const familyBonus = "Bonus 2"; // Placeholder value for family bonus
-        const slotBonus = "Bonus 3";   // Placeholder value for slot bonus
+        const bonuses = bonusProbabilities[talismanType];
+        const skillBonus = selectBonus(bonuses["Skill Bonus"], "Skill Bonus");
+        const familyBonus = selectBonus(bonuses["Family Bonus"], "Family Bonus");
+        const slotBonus = selectBonus(bonuses["Slot Bonus"], "Slot Bonus");
 
-        resultHtml += `<p><strong>Skill Bonus:</strong> ${skillBonus}</p>`;
-        resultHtml += `<p><strong>Family Bonus:</strong> ${familyBonus}</p>`;
-        resultHtml += `<p><strong>Slot Bonus:</strong> ${slotBonus}</p>`;
+        resultHtml += skillBonus ? `<p><strong>Skill Bonus:</strong> ${skillBonus}</p>` : '';
+        resultHtml += familyBonus ? `<p><strong>Family Bonus:</strong> ${familyBonus}</p>` : '';
+        resultHtml += slotBonus ? `<p><strong>Slot Bonus:</strong> ${slotBonus}</p>` : '';
     }
 
     // Insert the result HTML into the specified placeholder
@@ -108,4 +130,10 @@ function getRandomLevel(levelProbabilities) {
         }
     }
     return "Lv.1"; // Default to "Lv.1" if no match
+}
+
+// Helper function to randomly select a bonus skill based on probabilities
+function selectBonus(probability, bonusType) {
+    let random = Math.random() * 100;
+    return random < probability ? bonusType : null;
 }
