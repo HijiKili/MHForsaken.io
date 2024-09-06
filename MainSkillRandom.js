@@ -1,3 +1,8 @@
+// MainSkillRandom.js
+export function generateText(source, result) {
+    // Implementation of the function
+}
+
 // Define tier tables for each tier
 const tierTables = {
     "Tier 1": ["Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack"],
