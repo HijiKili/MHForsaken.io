@@ -6,29 +6,48 @@ table {
     font-size: 16px;
 }
 
+/* Body background */
 .background {
     background-image: url('forsakentalismanbg.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh; /* Adjust height as needed */
     width: 100%; /* Adjust width as needed */
+    margin: 0; /* Ensure no extra margins */
+    padding: 0; /* Ensure no extra padding */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 /* Header styles */
 th {
     background-color: #ddd;
     padding: 10px;
-    border: none;
+    border: 1px solid #ddd; /* Ensure borders are consistent */
+    text-align: left; /* Align header text to the left */
 }
 
 /* Data cell styles */
 td {
     padding: 10px;
-    border: 1px solid #ddd;
-    border: none;
+    border: 1px solid #ddd; /* Ensure borders are consistent */
+    text-align: left; /* Align cell text to the left */
 }
 
 /* Table classes for different types */
 .main-skill-table th, .bonus-table th {
     background-color: #ccc;
+}
+
+/* Ensure button cells and result cells have no extra spacing */
+.button-cell, .result-cell {
+    padding: 10px;
+}
+
+/* Ensure proper spacing for buttons */
+button {
+    padding: 10px 20px; /* Adjust button padding as needed */
+    border: 1px solid #ddd;
+    background-color: #f5f5f5; /* Adjust button background color as needed */
+    cursor: pointer; /* Change cursor to pointer for buttons */
+    font-size: 16px; /* Ensure button text is readable */
 }
