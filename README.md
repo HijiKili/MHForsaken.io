@@ -23,9 +23,7 @@
         <tr>
             <td class="button-cell">
                 <button id="generatePawnButton">Praise</button>
-            </td>
-        </tr>
-        <tr>
+            </td>            
             <td class="result" id="pawnBonus">This talisman has no bonus</td>
         </tr>
         <tr>
@@ -36,9 +34,7 @@
             <td class="button-cell">
                 <button id="generateBishopButton">Praise</button>
             </td>
-        </tr>
-        <tr>
-            <td class="result" id="bishopBonus">This talisman has no bonus</td>
+            <td class="result" id="pawnBonus">This talisman has no bonus</td>            
         </tr>
     </table>
     <br>    
@@ -56,10 +52,8 @@
         <tr>
             <td class="button-cell">
                 <button id="generateKnightButton">Praise</button>
+                <td class="result" id="knightBonus">Bonus will be displayed here</td>
             </td>
-        </tr>
-        <tr>
-            <td class="result" id="knightBonus">Bonus will be displayed here</td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
@@ -68,10 +62,8 @@
         <tr>
             <td class="button-cell">
                 <button id="generateRookButton">Praise</button>
+                <td class="result" id="rookBonus">Bonus will be displayed here</td>
             </td>
-        </tr>
-        <tr>
-            <td class="result" id="rookBonus">Bonus will be displayed here</td>
         </tr>
     </table>
     <br>    
@@ -90,8 +82,6 @@
             <td class="button-cell">
                 <button id="generateQueenButton">Praise</button>
             </td>
-        </tr>
-        <tr>
             <td class="result" id="queenBonus">Bonus will be displayed here</td>
         </tr>
         <tr>
@@ -101,10 +91,8 @@
         <tr>
             <td class="button-cell">
                 <button id="generateKingButton">Praise</button>
-            </td>
-        </tr>
-        <tr>
             <td class="result" id="kingBonus">Bonus will be displayed here</td>
+            </td>
         </tr>
     </table>
 
