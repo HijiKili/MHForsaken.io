@@ -45,17 +45,23 @@
     <table>
         <tr>
             <th class="type">Type</th>
-            <th class="praise">Praise</th>
-            <th class="result-cell">Result</th>
+            <th class="result-cell" colspan="2">Result</th>
         </tr>
         <tr>
             <td>Pawn Talisman</td>
-            <td><button id="generatePawnButton">Praise</button></td>
-            <td rowspan="2" class="result" id="pawnResult">Result will be displayed here</td>
+            <td class="result-cell" colspan="2" id="pawnResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="praise"><button id="generatePawnButton">Praise</button></td>
         </tr>
         <tr>
             <td>Bishop Talisman</td>
-            <td><button id="generateBishopButton">Praise</button></td>
+            <td class="result-cell" colspan="2" id="bishopResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="praise"><button id="generateBishopButton">Praise</button></td>
         </tr>
     </table>
 
@@ -64,17 +70,23 @@
     <table>
         <tr>
             <th class="type">Type</th>
-            <th class="praise">Praise</th>
-            <th class="result-cell">Result</th>
+            <th class="result-cell" colspan="2">Result</th>
         </tr>
         <tr>
             <td>Knight Talisman</td>
-            <td><button id="generateKnightButton">Praise</button></td>
-            <td rowspan="2" class="result" id="knightResult">Result will be displayed here</td>
+            <td class="result-cell" colspan="2" id="knightResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="praise"><button id="generateKnightButton">Praise</button></td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
-            <td><button id="generateRookButton">Praise</button></td>
+            <td class="result-cell" colspan="2" id="rookResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="praise"><button id="generateRookButton">Praise</button></td>
         </tr>
     </table>
 
@@ -83,17 +95,23 @@
     <table>
         <tr>
             <th class="type">Type</th>
-            <th class="praise">Praise</th>
-            <th class="result-cell">Result</th>
+            <th class="result-cell" colspan="2">Result</th>
         </tr>
         <tr>
             <td>Queen Talisman</td>
-            <td><button id="generateQueenButton">Praise</button></td>
-            <td rowspan="2" class="result" id="queenResult">Result will be displayed here</td>
+            <td class="result-cell" colspan="2" id="queenResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="praise"><button id="generateQueenButton">Praise</button></td>
         </tr>
         <tr>
             <td>King Talisman</td>
-            <td><button id="generateKingButton">Praise</button></td>
+            <td class="result-cell" colspan="2" id="kingResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="praise"><button id="generateKingButton">Praise</button></td>
         </tr>
     </table>
 
