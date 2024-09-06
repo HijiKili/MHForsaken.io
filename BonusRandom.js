@@ -1,3 +1,7 @@
+// Import or ensure access to the generateText function from MainSkillRandom.js
+// This assumes generateText is available globally or via import
+// e.g., if using modules: import { generateText } from './MainSkillRandom.js';
+
 // List of Family Bonus levels
 const familyBonusLevels = [
     "Amphibian",
@@ -51,6 +55,14 @@ const slotBonusProbabilities = {
     "King": { 1: 32, 2: 52, 3: 17 }
 };
 
+// Define the mappings for Skill Bonus results
+const skillBonusMappings = {
+    "Knight": { source: "Pawn", result: "pawnResult" },
+    "Rook": { source: "Bishop", result: "bishopResult" },
+    "Queen": { source: "Knight", result: "knightResult" },
+    "King": { source: "Rook", result: "rookResult" }
+};
+
 // Function to update bonus result
 function updateBonus(talismanType, bonusResultElementId) {
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
@@ -80,9 +92,14 @@ function getOneBonus(bonusProbabilities, talismanType) {
     for (const [bonus, chance] of Object.entries(bonusProbabilities)) {
         cumulative += chance;
         if (random < cumulative) {
-            // Handle Slot Bonus level selection
             if (bonus === "Slot Bonus") {
                 return { bonus, level: getRandomSlotBonusLevel(talismanType) };
+            }
+            if (bonus === "Skill Bonus") {
+                return {
+                    bonus,
+                    level: getSkillBonusLevel(talismanType)
+                };
             }
             return bonus === "Nothing" ? null : { 
                 bonus,
@@ -91,6 +108,12 @@ function getOneBonus(bonusProbabilities, talismanType) {
         }
     }
     return null;
+}
+
+// Helper function to get the Skill Bonus level from the appropriate talisman
+function getSkillBonusLevel(talismanType) {
+    const { source, result } = skillBonusMappings[talismanType];
+    return generateText(source, result); // Ensure generateText is accessible and used correctly
 }
 
 // Helper function to get a random Family Bonus level
