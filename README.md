@@ -6,7 +6,7 @@
     <title>Talisman Generator</title>
     <style>
         table {
-            width: 50%;
+            width: 70%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
@@ -40,7 +40,6 @@
 </head>
 <body>
     <h1>Talisman Generator</h1>
-
     <!-- Mystery Charm -->
     <h2>Mystery Charm</h2>
     <table>
@@ -53,7 +52,7 @@
             <td class="result" id="pawnResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generatePawnButton">Praise</button>
             </td>
         </tr>
@@ -62,12 +61,11 @@
             <td class="result" id="bishopResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generateBishopButton">Praise</button>
             </td>
         </tr>
     </table>
-
     <!-- Shining Charm -->
     <h2>Shining Charm</h2>
     <table>
@@ -80,7 +78,7 @@
             <td class="result" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generateKnightButton">Praise</button>
             </td>
         </tr>
@@ -89,12 +87,11 @@
             <td class="result" id="rookResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generateRookButton">Praise</button>
             </td>
         </tr>
     </table>
-
     <!-- Timeworn Charm -->
     <h2>Timeworn Charm</h2>
     <table>
@@ -107,7 +104,7 @@
             <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generateQueenButton">Praise</button>
             </td>
         </tr>
@@ -116,7 +113,7 @@
             <td class="result" id="kingResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generateKingButton">Praise</button>
             </td>
         </tr>
