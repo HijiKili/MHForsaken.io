@@ -9,7 +9,7 @@
             width: 50%;
             border-collapse: collapse;
             margin-bottom: 20px;
-            table-layout: fixed; /* Ensure the table width is fixed */
+            table-layout: fixed; /* Ensure table width is fixed */
         }
         th, td {
             border: 1px solid #ddd;
@@ -25,28 +25,18 @@
         .result {
             padding: 10px;
             border: 1px solid #ddd;
-            width: 100%; /* Make sure the result fills the available space */
+            width: 100%; /* Fill available space */
             box-sizing: border-box; /* Include padding and border in element's total width and height */
         }
         .type {
             width: 20%; /* Fixed width for type column */
         }
-        .button-cell {
+        .praise-cell {
             text-align: center;
-        }
-        /* Fixed column widths for result table */
-        .result-table {
-            width: 100%;
-            table-layout: fixed; /* Ensure the result table width is fixed */
-        }
-        .result-table td {
-            border: none;
-        }
-        .type-cell {
-            width: 20%;
+            width: 20%; /* Fixed width for praise button cell */
         }
         .result-cell {
-            width: 80%;
+            width: 80%; /* Fill the remaining width */
         }
     </style>
 </head>
@@ -63,38 +53,32 @@
         <tr>
             <td>Pawn Talisman</td>
             <td class="result" id="pawnResult" rowspan="2">
-                <table class="result-table">
+                <table>
                     <tr>
-                        <td class="type-cell">Type</td>
-                        <td class="result-cell" id="pawnResultInner">Result will be displayed here</td>
-                    </tr>
-                    <tr>
-                        <td class="type-cell">Result</td>
                         <td class="result-cell" id="pawnResultInner">Result will be displayed here</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2"><button id="generatePawnButton">Praise</button></td>
+            <td class="praise-cell" colspan="2">
+                <button id="generatePawnButton">Praise</button>
+            </td>
         </tr>
         <tr>
             <td>Bishop Talisman</td>
             <td class="result" id="bishopResult" rowspan="2">
-                <table class="result-table">
+                <table>
                     <tr>
-                        <td class="type-cell">Type</td>
-                        <td class="result-cell" id="bishopResultInner">Result will be displayed here</td>
-                    </tr>
-                    <tr>
-                        <td class="type-cell">Result</td>
                         <td class="result-cell" id="bishopResultInner">Result will be displayed here</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2"><button id="generateBishopButton">Praise</button></td>
+            <td class="praise-cell" colspan="2">
+                <button id="generateBishopButton">Praise</button>
+            </td>
         </tr>
     </table>
 
@@ -108,38 +92,32 @@
         <tr>
             <td>Knight Talisman</td>
             <td class="result" id="knightResult" rowspan="2">
-                <table class="result-table">
+                <table>
                     <tr>
-                        <td class="type-cell">Type</td>
-                        <td class="result-cell" id="knightResultInner">Result will be displayed here</td>
-                    </tr>
-                    <tr>
-                        <td class="type-cell">Result</td>
                         <td class="result-cell" id="knightResultInner">Result will be displayed here</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2"><button id="generateKnightButton">Praise</button></td>
+            <td class="praise-cell" colspan="2">
+                <button id="generateKnightButton">Praise</button>
+            </td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
             <td class="result" id="rookResult" rowspan="2">
-                <table class="result-table">
+                <table>
                     <tr>
-                        <td class="type-cell">Type</td>
-                        <td class="result-cell" id="rookResultInner">Result will be displayed here</td>
-                    </tr>
-                    <tr>
-                        <td class="type-cell">Result</td>
                         <td class="result-cell" id="rookResultInner">Result will be displayed here</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2"><button id="generateRookButton">Praise</button></td>
+            <td class="praise-cell" colspan="2">
+                <button id="generateRookButton">Praise</button>
+            </td>
         </tr>
     </table>
 
@@ -153,38 +131,32 @@
         <tr>
             <td>Queen Talisman</td>
             <td class="result" id="queenResult" rowspan="2">
-                <table class="result-table">
+                <table>
                     <tr>
-                        <td class="type-cell">Type</td>
-                        <td class="result-cell" id="queenResultInner">Result will be displayed here</td>
-                    </tr>
-                    <tr>
-                        <td class="type-cell">Result</td>
                         <td class="result-cell" id="queenResultInner">Result will be displayed here</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2"><button id="generateQueenButton">Praise</button></td>
+            <td class="praise-cell" colspan="2">
+                <button id="generateQueenButton">Praise</button>
+            </td>
         </tr>
         <tr>
             <td>King Talisman</td>
             <td class="result" id="kingResult" rowspan="2">
-                <table class="result-table">
+                <table>
                     <tr>
-                        <td class="type-cell">Type</td>
-                        <td class="result-cell" id="kingResultInner">Result will be displayed here</td>
-                    </tr>
-                    <tr>
-                        <td class="type-cell">Result</td>
                         <td class="result-cell" id="kingResultInner">Result will be displayed here</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2"><button id="generateKingButton">Praise</button></td>
+            <td class="praise-cell" colspan="2">
+                <button id="generateKingButton">Praise</button>
+            </td>
         </tr>
     </table>
 
