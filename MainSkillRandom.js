@@ -40,15 +40,15 @@ const talismanProbabilities = {
 };
 
 // Add event listeners for each button
-document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn", "pawnResult", "pawnBonusResult"));
-document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop", "bishopResult", "bishopBonusResult"));
-document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight", "knightResult", "knightBonusResult"));
-document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook", "rookResult", "rookBonusResult"));
-document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen", "queenResult", "queenBonusResult"));
-document.getElementById("generateKingButton").addEventListener("click", () => generateText("King", "kingResult", "kingBonusResult"));
+document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn", "pawnResult"));
+document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop", "bishopResult"));
+document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight", "knightResult"));
+document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook", "rookResult"));
+document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen", "queenResult"));
+document.getElementById("generateKingButton").addEventListener("click", () => generateText("King", "kingResult"));
 
 // Function to generate text based on talisman type
-function generateText(talismanType, resultElementId, bonusResultElementId) {
+function generateText(talismanType, resultElementId) {
     const selectedProbabilities = talismanProbabilities[talismanType];
 
     // Generate a random number to select the tier
@@ -79,14 +79,9 @@ function generateText(talismanType, resultElementId, bonusResultElementId) {
     let levelProbabilities = selectedProbabilities[selectedTier].levels;
     let level = getRandomLevel(levelProbabilities);
 
-    // Create the result HTML for the main skill
+    // Create the result HTML in table format
     let resultHtml = `
-        <table class="main-skill-table">
-            <tr>
-                <th>Tier</th>
-                <th>Main Skill</th>
-                <th>Level</th>
-            </tr>
+        <table>
             <tr>
                 <td>${selectedTier}</td>
                 <td>${item}</td>
@@ -95,22 +90,19 @@ function generateText(talismanType, resultElementId, bonusResultElementId) {
         </table>
     `;
 
-    // Insert the result HTML into the specified placeholder for main skill
+    // Insert the result HTML into the specified placeholder
     document.getElementById(resultElementId).innerHTML = resultHtml;
-
-    // Call the BonusRandom.js script to update the bonus result
-    updateBonus(talismanType, bonusResultElementId);
 }
 
-    // Helper function to select the random level based on probabilities
-    function getRandomLevel(levelProbabilities) {
-        let random = Math.random() * 100;
-        let cumulative = 0;
-        for (const [level, chance] of Object.entries(levelProbabilities)) {
-            cumulative += chance;
-            if (random < cumulative) {
-                return level;
-            }
+// Helper function to select the random level based on probabilities
+function getRandomLevel(levelProbabilities) {
+    let random = Math.random() * 100;
+    let cumulative = 0;
+    for (const [level, chance] of Object.entries(levelProbabilities)) {
+        cumulative += chance;
+        if (random < cumulative) {
+            return level;
         }
-        return "Lv.1"; // Default to "Lv.1" if something goes wrong
+    }
+    return "Lv.1"; // Default to "Lv.1" if something goes wrong
 }
