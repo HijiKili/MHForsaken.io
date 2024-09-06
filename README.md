@@ -26,7 +26,7 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
-        /* Fixed column widths */
+        /* Fixed column widths based on percentages */
         .result table {
             table-layout: fixed;
         }
@@ -35,13 +35,13 @@
             text-overflow: ellipsis;
         }
         .result td:first-child {
-            width: 120px; /* Adjust width as needed */
+            width: 10%; /* Talisman Type */
         }
         .result td:nth-child(2) {
-            width: 200px; /* Adjust width as needed */
+            width: 30%; /* Generate */
         }
         .result td:last-child {
-            width: 80px; /* Adjust width as needed */
+            width: 60%; /* Result */
         }
     </style>
 </head>
