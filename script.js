@@ -116,16 +116,12 @@ function generateText(talismanType, resultElementId) {
         resultHtml += `<p><strong>Main Skill:</strong> ${item}</p>`;
     }
 
-    // Add bonus skills for Knight, Rook, Queen, and King based on bonus probabilities
+    // Add one bonus skill based on bonus probabilities
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
         const bonuses = bonusProbabilities[talismanType];
-        const skillBonus = getBonus(bonuses, "Skill Bonus");
-        const familyBonus = getBonus(bonuses, "Family Bonus");
-        const slotBonus = getBonus(bonuses, "Slot Bonus");
+        let bonus = getOneBonus(bonuses);
 
-        if (skillBonus) resultHtml += `<p><strong>Skill Bonus:</strong> ${skillBonus}</p>`;
-        if (familyBonus) resultHtml += `<p><strong>Family Bonus:</strong> ${familyBonus}</p>`;
-        if (slotBonus) resultHtml += `<p><strong>Slot Bonus:</strong> ${slotBonus}</p>`;
+        if (bonus) resultHtml += `<p><strong>${bonus}</strong></p>`;
     }
 
     // Insert the result HTML into the specified placeholder
@@ -145,16 +141,18 @@ function getRandomLevel(levelProbabilities) {
     return "Lv.1"; // Default to "Lv.1" if no match
 }
 
-// Helper function to randomly select a bonus based on cumulative probabilities
-function getBonus(bonuses, bonusType) {
+// Helper function to randomly select one bonus based on cumulative probabilities
+function getOneBonus(bonuses) {
     let random = Math.random() * 100;
     let cumulative = 0;
 
     // Calculate cumulative chance for all bonus types
-    cumulative += bonuses[bonusType];
-    if (random < cumulative) {
-        return bonusType;
+    for (const [bonusType, chance] of Object.entries(bonuses)) {
+        cumulative += chance;
+        if (random < cumulative) {
+            return bonusType;
+        }
     }
 
-    return null; // If the random number doesn't match any bonus, return nulla
+    return null; // If the random number doesn't match any bonus, return null
 }
