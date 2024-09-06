@@ -35,10 +35,6 @@ function updateBonus(talismanType, bonusResultElementId) {
         let bonusHtml = `
             <table class="bonus-table">
                 <tr>
-                    <th>Bonus</th>
-                    <th>Level</th>
-                </tr>
-                <tr>
                     <td>${bonus ? bonus.bonus : "N/A"}</td>
                     <td>${bonus ? bonus.level : "N/A"}</td>
                 </tr>
@@ -64,20 +60,3 @@ function getOneBonus(bonusProbabilities) {
     }
     return null;
 }
-
-// Event listeners for each button
-document.getElementById('generateKnightButton').addEventListener('click', function() {
-    updateBonus('Knight', 'knightBonus');
-});
-
-document.getElementById('generateRookButton').addEventListener('click', function() {
-    updateBonus('Rook', 'rookBonus');
-});
-
-document.getElementById('generateQueenButton').addEventListener('click', function() {
-    updateBonus('Queen', 'queenBonus');
-});
-
-document.getElementById('generateKingButton').addEventListener('click', function() {
-    updateBonus('King', 'kingBonus');
-});
