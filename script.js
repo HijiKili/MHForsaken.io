@@ -106,13 +106,13 @@ function generateText(talismanType, resultElementId) {
     // Add bonus skills for Knight, Rook, Queen, and King based on bonus probabilities
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
         const bonuses = bonusProbabilities[talismanType];
-        const skillBonus = selectBonus(bonuses["Skill Bonus"], "Skill Bonus");
-        const familyBonus = selectBonus(bonuses["Family Bonus"], "Family Bonus");
-        const slotBonus = selectBonus(bonuses["Slot Bonus"], "Slot Bonus");
+        const skillBonus = getBonus(bonuses, "Skill Bonus");
+        const familyBonus = getBonus(bonuses, "Family Bonus");
+        const slotBonus = getBonus(bonuses, "Slot Bonus");
 
-        resultHtml += skillBonus ? `<p><strong>Skill Bonus:</strong> ${skillBonus}</p>` : '';
-        resultHtml += familyBonus ? `<p><strong>Family Bonus:</strong> ${familyBonus}</p>` : '';
-        resultHtml += slotBonus ? `<p><strong>Slot Bonus:</strong> ${slotBonus}</p>` : '';
+        if (skillBonus) resultHtml += `<p><strong>Skill Bonus:</strong> ${skillBonus}</p>`;
+        if (familyBonus) resultHtml += `<p><strong>Family Bonus:</strong> ${familyBonus}</p>`;
+        if (slotBonus) resultHtml += `<p><strong>Slot Bonus:</strong> ${slotBonus}</p>`;
     }
 
     // Insert the result HTML into the specified placeholder
@@ -132,8 +132,16 @@ function getRandomLevel(levelProbabilities) {
     return "Lv.1"; // Default to "Lv.1" if no match
 }
 
-// Helper function to randomly select a bonus skill based on probabilities
-function selectBonus(probability, bonusType) {
+// Helper function to randomly select a bonus based on cumulative probabilities
+function getBonus(bonuses, bonusType) {
     let random = Math.random() * 100;
-    return random < probability ? bonusType : null;
+    let cumulative = 0;
+
+    // Calculate cumulative chance for all bonus types
+    cumulative += bonuses[bonusType];
+    if (random < cumulative) {
+        return bonusType;
+    }
+
+    return null; // If the random number doesn't match any bonus, return null
 }
