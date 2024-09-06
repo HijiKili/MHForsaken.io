@@ -65,15 +65,7 @@
         <tr>
             <th class="type" style="width: 20%;">Type</th>
             <th class="result-cell">Result</th>
-        </tr>
-        <tr>
-            <td>Queen Talisman</td>
-            <td class="result" id="queenResult">Result will be displayed here</td>
-        </tr>
-        <tr>
-            <td class="button-cell"><button id="generateQueenButton">Praise</button></td>
-            <td id="queenBonus">Bonus will be displayed here</td>
-        </tr>
+        </tr>        
         <tr>
             <td>King Talisman</td>
             <td class="result" id="kingResult">Result will be displayed here</td>
