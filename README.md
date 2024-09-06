@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1>Talisman Generator</h1>
-
+    
     <!-- Mystery Charm -->
-    <h2 class="mystery-charm">Mystery Charm</h2>
-    <table class="mystery-charm">
+    <h2 style="background-color: #527061; color: white;">Mystery Charm</h2>
+    <table>
         <tr>
             <th class="type">Type</th>
             <th class="result-cell">Result</th>
@@ -35,10 +35,10 @@
             </td>
         </tr>
     </table>
-
+    
     <!-- Shining Charm -->
-    <h2 class="shining-charm">Shining Charm</h2>
-    <table class="shining-charm">
+    <h2 style="background-color: #B7982A; color: black;">Shining Charm</h2>
+    <table>
         <tr>
             <th class="type">Type</th>
             <th class="result-cell">Result</th>
@@ -46,6 +46,9 @@
         <tr>
             <td>Knight Talisman</td>
             <td class="result" id="knightResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td class="result" id="knightBonusResult">Bonus will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -57,15 +60,18 @@
             <td class="result" id="rookResult">Result will be displayed here</td>
         </tr>
         <tr>
+            <td class="result" id="rookBonusResult">Bonus will be displayed here</td>
+        </tr>
+        <tr>
             <td class="button-cell">
                 <button id="generateRookButton">Praise</button>
             </td>
         </tr>
     </table>
-
+    
     <!-- Timeworn Charm -->
-    <h2 class="timeworn-charm">Timeworn Charm</h2>
-    <table class="timeworn-charm">
+    <h2 style="background-color: #752414; color: white;">Timeworn Charm</h2>
+    <table>
         <tr>
             <th class="type">Type</th>
             <th class="result-cell">Result</th>
@@ -75,6 +81,9 @@
             <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
+            <td class="result" id="queenBonusResult">Bonus will be displayed here</td>
+        </tr>
+        <tr>
             <td class="button-cell">
                 <button id="generateQueenButton">Praise</button>
             </td>
@@ -82,6 +91,9 @@
         <tr>
             <td>King Talisman</td>
             <td class="result" id="kingResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td class="result" id="kingBonusResult">Bonus will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
