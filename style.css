@@ -1,53 +1,24 @@
+/* Common styles for tables */
 table {
-    width: 70%;
+    width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin: 10px 0;
+    font-size: 16px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
+/* Header styles */
 th {
-    background-color: #f4f4f4;
+    background-color: #ddd;
+    padding: 10px;
 }
 
-button {
-    margin-top: 10px;
-}
-
-.result {
-    margin-top: 10px;
+/* Data cell styles */
+td {
     padding: 10px;
     border: 1px solid #ddd;
-    vertical-align: top;
 }
 
-.type {
-    width: 20%;
-}
-
-.result-cell {
-    width: 80%;
-}
-
-.button-cell {
-    text-align: center;
-}
-
-.mystery-charm {
-    background-color: #527061;
-    color: white;
-}
-
-.shining-charm {
-    background-color: #B7982A;
-    color: white;
-}
-
-.timeworn-charm {
-    background-color: #752414;
-    color: white;
+/* Table classes for different types */
+.main-skill-table th, .bonus-table th {
+    background-color: #ccc;
 }
