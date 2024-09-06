@@ -14,6 +14,7 @@ const familyBonusLevels = [
     "Temnoceran",
     "Wilderness"
 ];
+
 // Define bonus probabilities for each talisman
 const bonusProbabilities = {
     "Knight": {
@@ -44,10 +45,10 @@ const bonusProbabilities = {
 
 // Define Skill Bonus result mappings
 const skillBonusMappings = {
-    "Knight": { source: "Pawn", result: "pawnResult" },
-    "Rook": { source: "Bishop", result: "bishopResult" },
-    "Queen": { source: "Knight", result: "knightResult" },
-    "King": { source: "Rook", result: "rookResult" }
+    "Knight": { result: "pawnResult" },
+    "Rook": { result: "bishopResult" },
+    "Queen": { result: "knightResult" },
+    "King": { result: "rookResult" }
 };
 
 // Helper function to get one bonus based on probabilities
@@ -77,9 +78,12 @@ function getOneBonus(bonusProbabilities, talismanType) {
 
 // Helper function to get the Second Skill level from the appropriate talisman
 function getSkillBonusLevel(talismanType) {
-    const { source, result } = skillBonusMappings[talismanType];
-    let skillBonusLevel = document.getElementById(result).textContent; // Get the result from the corresponding element
-    return skillBonusLevel || "N/A";
+    const { result } = skillBonusMappings[talismanType];
+    const skillBonusElement = document.getElementById(result);
+    if (skillBonusElement) {
+        return skillBonusElement.textContent.trim() || "N/A";
+    }
+    return "N/A";
 }
 
 // Helper function to get a random Family Bonus level
@@ -139,5 +143,4 @@ document.getElementById('generateQueenButton').addEventListener('click', functio
 
 document.getElementById('generateKingButton').addEventListener('click', function() {
     updateBonus('King', 'kingBonus');
-});
 });
