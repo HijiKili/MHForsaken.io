@@ -81,7 +81,7 @@
         <tr>
             <td>Rook Talisman</td>
             <td class="result" id="rookResult" rowspan="2">Result will be displayed here</td>
-        </tr>
+        </tr> 
         <tr>
             <td class="button-cell"><button id="generateRookButton">Praise</button></td>
         </tr>
