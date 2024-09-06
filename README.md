@@ -8,12 +8,12 @@
 </head>
 <body>
     <h1>Talisman Generator</h1>
-    <br>
+    <br>    
     <!-- Mystery Charm -->
-    <h2 style="background-color: #527061; color: white;">Mystery Charm</h2>
-    <table>
+    <h3 style="background-color: #527061; color: white;">Mystery Charm</h3>
+    <table style="width: 50%;">
         <tr>
-            <th class="type">Type</th>
+            <th class="type" style="width: 20%;">Type</th>
             <th class="result-cell">Result</th>
         </tr>
         <tr>
@@ -21,24 +21,28 @@
             <td class="result" id="pawnResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generatePawnButton">Praise</button></td>
-            <td class="result" id="pawnBonus">This talisman has no bonus</td>
+            <td class="button-cell" colspan="2">
+                <button id="generatePawnButton">Praise</button>
+                <span id="pawnBonus">This talisman has no bonus</span>
+            </td>
         </tr>
         <tr>
             <td>Bishop Talisman</td>
             <td class="result" id="bishopResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateBishopButton">Praise</button></td>
-            <td class="result" id="bishopBonus">This talisman has no bonus</td>
+            <td class="button-cell" colspan="2">
+                <button id="generateBishopButton">Praise</button>
+                <span id="bishopBonus">This talisman has no bonus</span>
+            </td>
         </tr>
-    </table>
+    </table>    
     <br>    
     <!-- Shining Charm -->
-    <h2 style="background-color: #B7982A; color: black;">Shining Charm</h2>
-    <table>
+    <h3 style="background-color: #B7982A; color: black;">Shining Charm</h3>
+    <table style="width: 50%;">
         <tr>
-            <th class="type">Type</th>
+            <th class="type" style="width: 20%;">Type</th>
             <th class="result-cell">Result</th>
         </tr>
         <tr>
@@ -46,24 +50,28 @@
             <td class="result" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateKnightButton">Praise</button></td>
-            <td class="result" id="knightBonus">Bonus will be displayed here</td>
+            <td class="button-cell" colspan="2">
+                <button id="generateKnightButton">Praise</button>
+                <span id="knightBonus">Bonus will be displayed here</span>
+            </td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
             <td class="result" id="rookResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateRookButton">Praise</button></td>
-            <td class="result" id="rookBonus">Bonus will be displayed here</td>
+            <td class="button-cell" colspan="2">
+                <button id="generateRookButton">Praise</button>
+                <span id="rookBonus">Bonus will be displayed here</span>
+            </td>
         </tr>
-    </table>
+    </table>    
     <br>    
     <!-- Timeworn Charm -->
-    <h2 style="background-color: #752414; color: white;">Timeworn Charm</h2>
-    <table>
+    <h3 style="background-color: #752414; color: white;">Timeworn Charm</h3>
+    <table style="width: 50%;">
         <tr>
-            <th class="type">Type</th>
+            <th class="type" style="width: 20%;">Type</th>
             <th class="result-cell">Result</th>
         </tr>
         <tr>
@@ -71,18 +79,22 @@
             <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateQueenButton">Praise</button></td>
-            <td class="result" id="queenBonus">Bonus will be displayed here</td>
+            <td class="button-cell" colspan="2">
+                <button id="generateQueenButton">Praise</button>
+                <span id="queenBonus">Bonus will be displayed here</span>
+            </td>
         </tr>
         <tr>
             <td>King Talisman</td>
             <td class="result" id="kingResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateKingButton">Praise</button></td>
-            <td class="result" id="kingBonus">Bonus will be displayed here</td>
+            <td class="button-cell" colspan="2">
+                <button id="generateKingButton">Praise</button>
+                <span id="kingBonus">Bonus will be displayed here</span>
+            </td>
         </tr>
-    </table>
+    </table>    
     <script src="MainSkillRandom.js"></script>
     <script src="BonusRandom.js"></script>
 </body>
