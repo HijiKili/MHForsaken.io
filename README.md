@@ -40,6 +40,7 @@
     <button id="generateKingButton">Generate King Talisman</button>
     <div id="kingResult" class="result"></div>
 
+    <!-- Link to JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
