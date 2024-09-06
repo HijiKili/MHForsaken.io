@@ -26,6 +26,7 @@
             padding: 10px;
             border: 1px solid #ddd;
             vertical-align: top;
+            width: 100%; /* Ensures it fills the available space */
         }
         .type {
             width: 20%;
@@ -35,6 +36,9 @@
         }
         .button-cell {
             text-align: center;
+        }
+        .full-width {
+            width: 100%; /* Ensures full-width for cells that span the table */
         }
     </style>
 </head>
