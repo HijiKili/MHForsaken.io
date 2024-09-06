@@ -78,13 +78,17 @@ document.getElementById("generateKingButton").addEventListener("click", () => ge
 // Function to generate text based on talisman type
 function generateText(talismanType, resultElementId) {
     const selectedProbabilities = talismanProbabilities[talismanType];
+    if (!selectedProbabilities) {
+        console.error("Invalid talisman type");
+        return;
+    }
 
     // Generate a random number to select the tier
     let random = Math.random() * 100;
     let cumulativeProbability = 0;
     let selectedTier = null;
 
-    for (const [tier, data] of Object.entries(selectedProbabilities || {})) {
+    for (const [tier, data] of Object.entries(selectedProbabilities)) {
         cumulativeProbability += data.chance;
         if (random < cumulativeProbability) {
             selectedTier = tier;
@@ -92,7 +96,6 @@ function generateText(talismanType, resultElementId) {
         }
     }
 
-    // If no tier is selected, stop the function
     if (!selectedTier || !selectedProbabilities[selectedTier]) {
         console.error("No tier or probabilities found");
         return;
@@ -100,8 +103,13 @@ function generateText(talismanType, resultElementId) {
 
     // Get a random skill from the selected tier's table
     let tierItems = tierTables[selectedTier];
-    let itemIndex = Math.floor(Math.random() * (tierItems ? tierItems.length : 0));
-    let item = tierItems ? tierItems[itemIndex] : "N/A";
+    if (!tierItems) {
+        console.error("Invalid tier items");
+        return;
+    }
+
+    let itemIndex = Math.floor(Math.random() * tierItems.length);
+    let item = tierItems[itemIndex] || "N/A";
 
     // Determine the level based on probabilities
     let levelProbabilities = selectedProbabilities[selectedTier].levels;
@@ -157,8 +165,8 @@ function getOneBonus(bonusProbabilities) {
     let random = Math.random() * 100;
     let cumulative = 0;
     for (const [bonus, chance] of Object.entries(bonusProbabilities)) {
-        cumulative += chance;
-        if (random < cumulative) {
+            cumulative += chance;
+            if (random < cumulative) {
             return bonus === "Nothing" ? null : bonus;
         }
     }
