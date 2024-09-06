@@ -156,5 +156,5 @@ function getBonus(bonuses, bonusType) {
         return bonusType;
     }
 
-    return null; // If the random number doesn't match any bonus, return null
+    return null; // If the random number doesn't match any bonus, return nulla
 }
