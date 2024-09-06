@@ -14,7 +14,6 @@ const familyBonusLevels = [
     "Temnoceran",
     "Wilderness"
 ];
-
 // Define bonus probabilities for each talisman
 const bonusProbabilities = {
     "Knight": {
@@ -43,15 +42,7 @@ const bonusProbabilities = {
     }
 };
 
-// Define Decoration Slot level probabilities for each talisman
-const decorationSlotProbabilities = {
-    "Knight": { 1: 67, 2: 33 },
-    "Rook": { 1: 54, 2: 42, 3: 4 },
-    "Queen": { 1: 43, 2: 47, 3: 10 },
-    "King": { 1: 32, 2: 52, 3: 17 }
-};
-
-// Define the mappings for Second Skill results
+// Define Skill Bonus result mappings
 const skillBonusMappings = {
     "Knight": { source: "Pawn", result: "pawnResult" },
     "Rook": { source: "Bishop", result: "bishopResult" },
@@ -67,12 +58,12 @@ function getOneBonus(bonusProbabilities, talismanType) {
         cumulative += chance;
         if (random < cumulative) {
             if (bonus === "Decoration Slot") {
-                return { bonus, level: getRandomDecorationSlotLevel(talismanType) };
+                return { bonus, level: getRandomSlotBonusLevel(talismanType) };
             }
             if (bonus === "Second Skill") {
                 return {
                     bonus,
-                    level: getSecondSkillLevel(talismanType)
+                    level: getSkillBonusLevel(talismanType)
                 };
             }
             if (bonus === "Family Bonus") {
@@ -85,11 +76,10 @@ function getOneBonus(bonusProbabilities, talismanType) {
 }
 
 // Helper function to get the Second Skill level from the appropriate talisman
-function getSecondSkillLevel(talismanType) {
+function getSkillBonusLevel(talismanType) {
     const { source, result } = skillBonusMappings[talismanType];
-    let secondSkillLevel = generateText(source, result); // Ensure generateText is accessible and used correctly
-    // Assume generateText returns a string with the bonus level
-    return secondSkillLevel || "N/A";
+    let skillBonusLevel = document.getElementById(result).textContent; // Get the result from the corresponding element
+    return skillBonusLevel || "N/A";
 }
 
 // Helper function to get a random Family Bonus level
@@ -99,8 +89,8 @@ function getRandomFamilyBonusLevel() {
 }
 
 // Helper function to get a random Decoration Slot level based on talisman type
-function getRandomDecorationSlotLevel(talismanType) {
-    const slotLevels = decorationSlotProbabilities[talismanType];
+function getRandomSlotBonusLevel(talismanType) {
+    const slotLevels = slotBonusProbabilities[talismanType];
     let random = Math.random() * 100;
     let cumulative = 0;
     for (const [level, chance] of Object.entries(slotLevels)) {
@@ -149,4 +139,5 @@ document.getElementById('generateQueenButton').addEventListener('click', functio
 
 document.getElementById('generateKingButton').addEventListener('click', function() {
     updateBonus('King', 'kingBonus');
+});
 });
