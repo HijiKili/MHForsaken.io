@@ -6,7 +6,7 @@
     <title>Talisman Generator</title>
     <style>
         table {
-            width: 100%;
+            width: 50%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
@@ -26,22 +26,17 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
-        /* Fixed column widths based on percentages */
-        .result table {
-            table-layout: fixed;
+        .type {
+            width: 20%;
         }
-        .result th, .result td {
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .praise {
+            width: 30%;
         }
-        .result td:first-child {
-            width: 10%; /* Talisman Type */
+        .result-cell {
+            width: 60%;
         }
-        .result td:nth-child(2) {
-            width: 30%; /* Generate */
-        }
-        .result td:last-child {
-            width: 60%; /* Result */
+        .result-table td, .result-table th {
+            text-align: center;
         }
     </style>
 </head>
@@ -52,19 +47,23 @@
     <h2>Mystery Charm</h2>
     <table>
         <tr>
-            <th>Talisman Type</th>
-            <th>Generate</th>
-            <th>Result</th>
+            <th class="type">Type</th>
+            <th class="praise">Praise</th>
+            <th class="result-cell" rowspan="2">Result</th>
         </tr>
         <tr>
             <td>Pawn Talisman</td>
             <td><button id="generatePawnButton">Generate Pawn Talisman</button></td>
-            <td class="result" id="pawnResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td>Bishop Talisman</td>
             <td><button id="generateBishopButton">Generate Bishop Talisman</button></td>
-            <td class="result" id="bishopResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="result" id="pawnResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="result" id="bishopResult">Result will be displayed here</td>
         </tr>
     </table>
 
@@ -72,19 +71,23 @@
     <h2>Shining Charm</h2>
     <table>
         <tr>
-            <th>Talisman Type</th>
-            <th>Generate</th>
-            <th>Result</th>
+            <th class="type">Type</th>
+            <th class="praise">Praise</th>
+            <th class="result-cell" rowspan="2">Result</th>
         </tr>
         <tr>
             <td>Knight Talisman</td>
             <td><button id="generateKnightButton">Generate Knight Talisman</button></td>
-            <td class="result" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
             <td><button id="generateRookButton">Generate Rook Talisman</button></td>
-            <td class="result" id="rookResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="result" id="knightResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="result" id="rookResult">Result will be displayed here</td>
         </tr>
     </table>
 
@@ -92,19 +95,23 @@
     <h2>Timeworn Charm</h2>
     <table>
         <tr>
-            <th>Talisman Type</th>
-            <th>Generate</th>
-            <th>Result</th>
+            <th class="type">Type</th>
+            <th class="praise">Praise</th>
+            <th class="result-cell" rowspan="2">Result</th>
         </tr>
         <tr>
             <td>Queen Talisman</td>
             <td><button id="generateQueenButton">Generate Queen Talisman</button></td>
-            <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td>King Talisman</td>
             <td><button id="generateKingButton">Generate King Talisman</button></td>
-            <td class="result" id="kingResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="result" id="queenResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="result" id="kingResult">Result will be displayed here</td>
         </tr>
     </table>
 
