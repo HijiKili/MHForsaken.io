@@ -80,10 +80,9 @@
         </tr>
         <tr>
             <td class="button-cell"><button id="generateKingButton">Praise</button></td>
-            <td class="result" id="kingBonus">Bonus will be displayed here</td>
+            <td class="result" id="kingResult">Bonus will be displayed here</td>
         </tr>
     </table>
-
     <script src="MainSkillRandom.js"></script>
     <script src="BonusRandom.js"></script>
 </body>
