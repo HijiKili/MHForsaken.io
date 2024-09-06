@@ -1,9 +1,3 @@
-// MainSkillRandom.js
-export function generateText(source, result) {
-    console.log(`Generating text for ${source} with result ${result}`);
-    // Implementation of the function
-}
-
 // Define tier tables for each tier
 const tierTables = {
     "Tier 1": ["Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack"],
@@ -35,7 +29,7 @@ const talismanProbabilities = {
     },
     "Queen": {
         "Tier 1": { chance: 9, levels: { "Lv.1": 24, "Lv.2": 49, "Lv.3": 27 } },
-        "Tier 2": { chance: 49, levels: { "Lv.1": 69, "Lv.2": 27 } },
+        "Tier 2": { chance: 49, levels: { "Lv.1": 69, "Lv.2":31 } },
         "Tier 3": { chance: 42, levels: { "Lv.1": 100 } }
     },
     "King": {
