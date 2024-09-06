@@ -1,7 +1,3 @@
-// Import the generateText function if using modules
-// e.g., if using modules: import { generateText } from './MainSkillRandom.js';
-
-// Ensure that generateText is accessible if not using modules
 // Define Family Bonus levels
 const familyBonusLevels = [
     "Amphibian",
@@ -22,46 +18,99 @@ const familyBonusLevels = [
 // Define bonus probabilities for each talisman
 const bonusProbabilities = {
     "Knight": {
-        "Skill Bonus": 3,
+        "Second Skill": 9,
         "Family Bonus": 0,
-        "Slot Bonus": 11,
-        "Nothing": 86
+        "Decoration Slot": 11,
+        "Nothing": 80
     },
     "Rook": {
-        "Skill Bonus": 7,
+        "Second Skill": 11,
         "Family Bonus": 4,
-        "Slot Bonus": 25,
-        "Nothing": 64
+        "Decoration Slot": 25,
+        "Nothing": 60
     },
     "Queen": {
-        "Skill Bonus": 11,
+        "Second Skill": 19,
         "Family Bonus": 10,
-        "Slot Bonus": 42,
-        "Nothing": 37
+        "Decoration Slot": 42,
+        "Nothing": 29
     },
     "King": {
-        "Skill Bonus": 39,
-        "Family Bonus": 46,
-        "Slot Bonus": 12,
-        "Nothing": 3
+        "Second Skill": 47,
+        "Family Bonus": 41,
+        "Decoration Slot": 12,
+        "Nothing": 0
     }
 };
 
-// Define Slot Bonus level probabilities for each talisman
-const slotBonusProbabilities = {
+// Define Decoration Slot level probabilities for each talisman
+const decorationSlotProbabilities = {
     "Knight": { 1: 67, 2: 33 },
     "Rook": { 1: 54, 2: 42, 3: 4 },
     "Queen": { 1: 43, 2: 47, 3: 10 },
     "King": { 1: 32, 2: 52, 3: 17 }
 };
 
-// Define the mappings for Skill Bonus results
+// Define the mappings for Second Skill results
 const skillBonusMappings = {
     "Knight": { source: "Pawn", result: "pawnResult" },
     "Rook": { source: "Bishop", result: "bishopResult" },
     "Queen": { source: "Knight", result: "knightResult" },
     "King": { source: "Rook", result: "rookResult" }
 };
+
+// Helper function to get one bonus based on probabilities
+function getOneBonus(bonusProbabilities, talismanType) {
+    let random = Math.random() * 100;
+    let cumulative = 0;
+    for (const [bonus, chance] of Object.entries(bonusProbabilities)) {
+        cumulative += chance;
+        if (random < cumulative) {
+            if (bonus === "Decoration Slot") {
+                return { bonus, level: getRandomDecorationSlotLevel(talismanType) };
+            }
+            if (bonus === "Second Skill") {
+                return {
+                    bonus,
+                    level: getSecondSkillLevel(talismanType)
+                };
+            }
+            if (bonus === "Family Bonus") {
+                return { bonus, level: getRandomFamilyBonusLevel() };
+            }
+            return bonus === "Nothing" ? null : { bonus, level: 1 };
+        }
+    }
+    return null;
+}
+
+// Helper function to get the Second Skill level from the appropriate talisman
+function getSecondSkillLevel(talismanType) {
+    const { source, result } = skillBonusMappings[talismanType];
+    let secondSkillLevel = generateText(source, result); // Ensure generateText is accessible and used correctly
+    // Assume generateText returns a string with the bonus level
+    return secondSkillLevel || "N/A";
+}
+
+// Helper function to get a random Family Bonus level
+function getRandomFamilyBonusLevel() {
+    const randomIndex = Math.floor(Math.random() * familyBonusLevels.length);
+    return familyBonusLevels[randomIndex];
+}
+
+// Helper function to get a random Decoration Slot level based on talisman type
+function getRandomDecorationSlotLevel(talismanType) {
+    const slotLevels = decorationSlotProbabilities[talismanType];
+    let random = Math.random() * 100;
+    let cumulative = 0;
+    for (const [level, chance] of Object.entries(slotLevels)) {
+        cumulative += chance;
+        if (random < cumulative) {
+            return level;
+        }
+    }
+    return 1; // Default to 1 if something goes wrong
+}
 
 // Function to update bonus result
 function updateBonus(talismanType, bonusResultElementId) {
@@ -83,59 +132,6 @@ function updateBonus(talismanType, bonusResultElementId) {
     } else {
         document.getElementById(bonusResultElementId).innerHTML = "N/A";
     }
-}
-
-// Helper function to get one bonus based on probabilities
-function getOneBonus(bonusProbabilities, talismanType) {
-    let random = Math.random() * 100;
-    let cumulative = 0;
-    for (const [bonus, chance] of Object.entries(bonusProbabilities)) {
-        cumulative += chance;
-        if (random < cumulative) {
-            if (bonus === "Slot Bonus") {
-                return { bonus, level: getRandomSlotBonusLevel(talismanType) };
-            }
-            if (bonus === "Skill Bonus") {
-                return {
-                    bonus,
-                    level: getSkillBonusLevel(talismanType)
-                };
-            }
-            return bonus === "Nothing" ? null : { 
-                bonus,
-                level: bonus === "Family Bonus" ? getRandomFamilyBonusLevel() : 1
-            };
-        }
-    }
-    return null;
-}
-
-// Helper function to get the Skill Bonus level from the appropriate talisman
-function getSkillBonusLevel(talismanType) {
-    const { source, result } = skillBonusMappings[talismanType];
-    let skillBonusLevel = generateText(source, result); // Ensure generateText is accessible and used correctly
-    // Assume generateText returns a string with the bonus level
-    return skillBonusLevel || "N/A";
-}
-
-// Helper function to get a random Family Bonus level
-function getRandomFamilyBonusLevel() {
-    const randomIndex = Math.floor(Math.random() * familyBonusLevels.length);
-    return familyBonusLevels[randomIndex];
-}
-
-// Helper function to get a random Slot Bonus level based on talisman type
-function getRandomSlotBonusLevel(talismanType) {
-    const slotLevels = slotBonusProbabilities[talismanType];
-    let random = Math.random() * 100;
-    let cumulative = 0;
-    for (const [level, chance] of Object.entries(slotLevels)) {
-        cumulative += chance;
-        if (random < cumulative) {
-            return level;
-        }
-    }
-    return 1; // Default to 1 if something goes wrong
 }
 
 // Event listeners for each button
