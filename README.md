@@ -71,7 +71,7 @@
             <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell"">
                 <button id="generateQueenButton">Praise</button></td>
                 <td id="queenBonus">Bonus will be displayed here</td>
         </tr>
@@ -80,7 +80,7 @@
             <td class="result" id="kingResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
+            <td class="button-cell">
                 <button id="generateKingButton">Praise</button></td>
                 <td id="kingBonus">Bonus will be displayed here</td>
         </tr>
