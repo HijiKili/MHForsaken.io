@@ -5,7 +5,7 @@
     <title>Talisman Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="background">
     <h1>Talisman Generator</h1>
     <br>    
     <!-- Mystery Charm -->
