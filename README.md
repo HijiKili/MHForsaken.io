@@ -71,9 +71,8 @@
             <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"">
-                <button id="generateQueenButton">Praise</button></td>
-                <td id="queenBonus">Bonus will be displayed here</td>
+            <td class="button-cell""><button id="generateQueenButton">Praise</button></td>
+            <td id="queenBonus">Bonus will be displayed here</td>
         </tr>
         <tr>
             <td>King Talisman</td>
