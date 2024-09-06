@@ -2,6 +2,9 @@
 // This assumes generateText is available globally or via import
 // e.g., if using modules: import { generateText } from './MainSkillRandom.js';
 
+// At the top of BonusRandom.js
+import { generateText } from './MainSkillRandom.js';
+
 // List of Family Bonus levels
 const familyBonusLevels = [
     "Amphibian",
