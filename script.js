@@ -90,7 +90,7 @@ function generateText(talismanType, resultElementId) {
                 <th>Main Skill</th>
                 <th>Level</th>
             </tr>
-            <tr>
+            <tr> 
                 <td>${selectedTier}</td>
                 <td>${item}</td>
                 <td>${level}</td>
