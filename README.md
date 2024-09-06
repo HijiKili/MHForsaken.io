@@ -49,14 +49,14 @@
             <td class="result-cell" id="pawnResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2"><button id="generatePawnButton">Praise</button></td>
+            <td colspan="2" style="text-align: center;"><button id="generatePawnButton">Praise</button></td>
         </tr>
         <tr>
             <td>Bishop Talisman</td>
             <td class="result-cell" id="bishopResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2"><button id="generateBishopButton">Praise</button></td>
+            <td colspan="2" style="text-align: center;"><button id="generateBishopButton">Praise</button></td>
         </tr>
     </table>
 
@@ -72,14 +72,14 @@
             <td class="result-cell" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2"><button id="generateKnightButton">Praise</button></td>
+            <td colspan="2" style="text-align: center;"><button id="generateKnightButton">Praise</button></td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
             <td class="result-cell" id="rookResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2"><button id="generateRookButton">Praise</button></td>
+            <td colspan="2" style="text-align: center;"><button id="generateRookButton">Praise</button></td>
         </tr>
     </table>
 
@@ -95,14 +95,14 @@
             <td class="result-cell" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2"><button id="generateQueenButton">Praise</button></td>
+            <td colspan="2" style="text-align: center;"><button id="generateQueenButton">Praise</button></td>
         </tr>
         <tr>
             <td>King Talisman</td>
             <td class="result-cell" id="kingResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2"><button id="generateKingButton">Praise</button></td>
+            <td colspan="2" style="text-align: center;"><button id="generateKingButton">Praise</button></td>
         </tr>
     </table>
 
