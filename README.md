@@ -25,12 +25,11 @@
             margin-top: 10px;
             padding: 10px;
             border: 1px solid #ddd;
+            width: 100%; /* Make sure the result fills the available space */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
         }
         .type {
             width: 20%;
-        }
-        .result-cell {
-            width: 80%;
             vertical-align: top;
         }
         .button-cell {
@@ -46,21 +45,21 @@
     <table>
         <tr>
             <th class="type">Type</th>
-            <th class="result-cell">Result</th>
+            <th>Result</th>
         </tr>
         <tr>
             <td>Pawn Talisman</td>
             <td class="result" id="pawnResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generatePawnButton">Praise</button></td>
+            <td class="button-cell" colspan="2"><button id="generatePawnButton">Praise</button></td>
         </tr>
         <tr>
             <td>Bishop Talisman</td>
             <td class="result" id="bishopResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateBishopButton">Praise</button></td>
+            <td class="button-cell" colspan="2"><button id="generateBishopButton">Praise</button></td>
         </tr>
     </table>
 
@@ -69,21 +68,21 @@
     <table>
         <tr>
             <th class="type">Type</th>
-            <th class="result-cell">Result</th>
+            <th>Result</th>
         </tr>
         <tr>
             <td>Knight Talisman</td>
             <td class="result" id="knightResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateKnightButton">Praise</button></td>
+            <td class="button-cell" colspan="2"><button id="generateKnightButton">Praise</button></td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
             <td class="result" id="rookResult" rowspan="2">Result will be displayed here</td>
-        </tr> 
+        </tr>
         <tr>
-            <td class="button-cell"><button id="generateRookButton">Praise</button></td>
+            <td class="button-cell" colspan="2"><button id="generateRookButton">Praise</button></td>
         </tr>
     </table>
 
@@ -92,21 +91,21 @@
     <table>
         <tr>
             <th class="type">Type</th>
-            <th class="result-cell">Result</th>
+            <th>Result</th>
         </tr>
         <tr>
             <td>Queen Talisman</td>
             <td class="result" id="queenResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateQueenButton">Praise</button></td>
+            <td class="button-cell" colspan="2"><button id="generateQueenButton">Praise</button></td>
         </tr>
         <tr>
             <td>King Talisman</td>
             <td class="result" id="kingResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell"><button id="generateKingButton">Praise</button></td>
+            <td class="button-cell" colspan="2"><button id="generateKingButton">Praise</button></td>
         </tr>
     </table>
 
