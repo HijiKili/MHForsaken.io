@@ -26,42 +26,30 @@ const bonusProbabilities = {
     }
 };
 
-// Add event listeners for each button
-document.getElementById("generatePawnButton").addEventListener("click", () => generateBonus("Pawn", "pawnResult"));
-document.getElementById("generateBishopButton").addEventListener("click", () => generateBonus("Bishop", "bishopResult"));
-document.getElementById("generateKnightButton").addEventListener("click", () => generateBonus("Knight", "knightResult"));
-document.getElementById("generateRookButton").addEventListener("click", () => generateBonus("Rook", "rookResult"));
-document.getElementById("generateQueenButton").addEventListener("click", () => generateBonus("Queen", "queenResult"));
-document.getElementById("generateKingButton").addEventListener("click", () => generateBonus("King", "kingResult"));
+// Function to update bonus result
+function updateBonus(talismanType, bonusResultElementId) {
+    if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
+        const bonuses = bonusProbabilities[talismanType];
+        let bonus = getOneBonus(bonuses);
 
-// Function to generate bonus based on talisman type
-function generateBonus(talismanType, resultElementId) {
-    if (!bonusProbabilities[talismanType]) {
-        console.error("No bonus probabilities found for", talismanType);
-        return;
+        let bonusHtml = `
+            <table class="bonus-table">
+                <tr>
+                    <th>Bonus</th>
+                    <th>Level</th>
+                </tr>
+                <tr>
+                    <td>${bonus ? bonus.bonus : "N/A"}</td>
+                    <td>${bonus ? bonus.level : "N/A"}</td>
+                </tr>
+            </table>
+        `;
+
+        // Insert the bonus result HTML into the specified placeholder
+        document.getElementById(bonusResultElementId).innerHTML = bonusHtml;
+    } else {
+        document.getElementById(bonusResultElementId).innerHTML = "N/A";
     }
-
-    // Get bonus probabilities
-    const bonuses = bonusProbabilities[talismanType];
-
-    // Determine the bonus based on probabilities
-    let bonus = getOneBonus(bonuses);
-
-    // Create the result HTML in table format
-    let resultHtml = `
-        <table>
-            <tr>
-                <th>Bonus</th>
-                <th>Level</th>
-            </tr>
-            <tr>
-                <td>${bonus ? bonus : "N/A"}</td>
-                <td>${bonus ? "Lv.1" : "N/A"}</td>
-            </tr>
-        </table>`;
-
-    // Insert the result HTML into the specified placeholder
-    document.getElementById(resultElementId).innerHTML = resultHtml;
 }
 
 // Helper function to get one bonus based on probabilities
@@ -70,10 +58,9 @@ function getOneBonus(bonusProbabilities) {
     let cumulative = 0;
     for (const [bonus, chance] of Object.entries(bonusProbabilities)) {
         cumulative += chance;
-                if (random < cumulative) {
-            return bonus === "Nothing" ? null : bonus;
+        if (random < cumulative) {
+            return bonus === "Nothing" ? null : { bonus, level: 1 }; // Level set to 1 by default
         }
     }
     return null;
 }
-
