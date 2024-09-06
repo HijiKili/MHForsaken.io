@@ -37,13 +37,16 @@
             text-align: center;
         }
         .mystery-charm {
-            background-color: lightgray;
+            background-color: #527061;
+            color: white;
         }
         .shining-charm {
-            background-color: lightyellow;
+            background-color: #B7982A;
+            color: white;
         }
         .timeworn-charm {
-            background-color: lightcoral;
+            background-color: #752414;
+            color: white;
         }
     </style>
 </head>
