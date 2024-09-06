@@ -51,6 +51,14 @@ const slotBonusProbabilities = {
     "King": { 1: 32, 2: 52, 3: 17 }
 };
 
+// Map of skill bonus sources for each talisman
+const skillBonusSources = {
+    "Knight": "pawnResult",
+    "Rook": "bishopResult",
+    "Queen": "knightResult",
+    "King": "rookResult"
+};
+
 // Function to update bonus result
 function updateBonus(talismanType, bonusResultElementId) {
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
@@ -84,6 +92,10 @@ function getOneBonus(bonusProbabilities, talismanType) {
             if (bonus === "Slot Bonus") {
                 return { bonus, level: getRandomSlotBonusLevel(talismanType) };
             }
+            if (bonus === "Skill Bonus") {
+                // Use talisman probabilities from the mapped source
+                return { bonus, level: getSkillBonusResult(skillBonusSources[talismanType]) };
+            }
             return bonus === "Nothing" ? null : { 
                 bonus,
                 level: bonus === "Family Bonus" ? getRandomFamilyBonusLevel() : 1
@@ -91,6 +103,12 @@ function getOneBonus(bonusProbabilities, talismanType) {
         }
     }
     return null;
+}
+
+// Function to get a Skill Bonus result using talisman probabilities
+function getSkillBonusResult(resultId) {
+    const element = document.getElementById(resultId);
+    return element ? element.textContent || "N/A" : "N/A"; // Fallback if no result is available
 }
 
 // Helper function to get a random Family Bonus level
