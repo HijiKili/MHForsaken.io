@@ -1,18 +1,15 @@
-// Import or ensure access to the generateText function from MainSkillRandom.js
-// This assumes generateText is available globally or via import
+// Import the generateText function if using modules
 // e.g., if using modules: import { generateText } from './MainSkillRandom.js';
 
-// At the top of BonusRandom.js
-import { generateText } from './MainSkillRandom.js';
-
-// List of Family Bonus levels
+// Ensure that generateText is accessible if not using modules
+// Define Family Bonus levels
 const familyBonusLevels = [
     "Amphibian",
     "Bird Wyvern",
     "Bonefied",
     "Brute Wyvern",
     "Carapaceon",
-    "Ancient",  // Replaced "Elder Dragon" with "Ancient"
+    "Ancient",
     "Fanged Beast",
     "Flying Wyvern",
     "Orenite",
@@ -116,7 +113,9 @@ function getOneBonus(bonusProbabilities, talismanType) {
 // Helper function to get the Skill Bonus level from the appropriate talisman
 function getSkillBonusLevel(talismanType) {
     const { source, result } = skillBonusMappings[talismanType];
-    return generateText(source, result); // Ensure generateText is accessible and used correctly
+    let skillBonusLevel = generateText(source, result); // Ensure generateText is accessible and used correctly
+    // Assume generateText returns a string with the bonus level
+    return skillBonusLevel || "N/A";
 }
 
 // Helper function to get a random Family Bonus level
