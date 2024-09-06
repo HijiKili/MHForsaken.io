@@ -45,15 +45,15 @@
             <th class="result-cell">Result</th>
         </tr>
         <tr>
-            <td rowspan="2">Pawn Talisman</td>
-            <td id="pawnResult">Result will be displayed here</td>
+            <td>Pawn Talisman</td>
+            <td rowspan="2" id="pawnResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td style="text-align: center;"><button id="generatePawnButton">Praise</button></td>
         </tr>
         <tr>
-            <td rowspan="2">Bishop Talisman</td>
-            <td id="bishopResult">Result will be displayed here</td>
+            <td>Bishop Talisman</td>
+            <td rowspan="2" id="bishopResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td style="text-align: center;"><button id="generateBishopButton">Praise</button></td>
@@ -68,15 +68,15 @@
             <th class="result-cell">Result</th>
         </tr>
         <tr>
-            <td rowspan="2">Knight Talisman</td>
-            <td id="knightResult">Result will be displayed here</td>
+            <td>Knight Talisman</td>
+            <td rowspan="2" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td style="text-align: center;"><button id="generateKnightButton">Praise</button></td>
         </tr>
         <tr>
-            <td rowspan="2">Rook Talisman</td>
-            <td id="rookResult">Result will be displayed here</td>
+            <td>Rook Talisman</td>
+            <td rowspan="2" id="rookResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td style="text-align: center;"><button id="generateRookButton">Praise</button></td>
@@ -91,15 +91,15 @@
             <th class="result-cell">Result</th>
         </tr>
         <tr>
-            <td rowspan="2">Queen Talisman</td>
-            <td id="queenResult">Result will be displayed here</td>
+            <td>Queen Talisman</td>
+            <td rowspan="2" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td style="text-align: center;"><button id="generateQueenButton">Praise</button></td>
         </tr>
         <tr>
-            <td rowspan="2">King Talisman</td>
-            <td id="kingResult">Result will be displayed here</td>
+            <td>King Talisman</td>
+            <td rowspan="2" id="kingResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td style="text-align: center;"><button id="generateKingButton">Praise</button></td>
