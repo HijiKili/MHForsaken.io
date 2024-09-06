@@ -82,12 +82,15 @@ function generateText(talismanType, resultElementId) {
         resultHtml += `<p><strong>Main Skill:</strong> ${item}</p>`;
     }
 
-    // Add bonus skills for Knight, Rook, Queen, and King
+    // Add 3 bonus skills for Knight, Rook, Queen, and King
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
-        const bonusSkills = ["Bonus 1", "Bonus 2", "Bonus 3", "Bonus 4", "Bonus 5", "Bonus 6", "Bonus 7"];
-        let bonusIndex = Math.floor(Math.random() * bonusSkills.length);
-        let bonus = bonusSkills[bonusIndex];
-        resultHtml += `<p><strong>Bonus Skill:</strong> ${bonus}</p>`;
+        const skillBonus = "Bonus 1";  // Placeholder value for skill bonus
+        const familyBonus = "Bonus 2"; // Placeholder value for family bonus
+        const slotBonus = "Bonus 3";   // Placeholder value for slot bonus
+
+        resultHtml += `<p><strong>Skill Bonus:</strong> ${skillBonus}</p>`;
+        resultHtml += `<p><strong>Family Bonus:</strong> ${familyBonus}</p>`;
+        resultHtml += `<p><strong>Slot Bonus:</strong> ${slotBonus}</p>`;
     }
 
     // Insert the result HTML into the specified placeholder
