@@ -26,7 +26,6 @@
             padding: 10px;
             border: 1px solid #ddd;
             vertical-align: top;
-            width: 100%; /* Ensures it fills the available space */
         }
         .type {
             width: 20%;
@@ -37,8 +36,14 @@
         .button-cell {
             text-align: center;
         }
-        .full-width {
-            width: 100%; /* Ensures full-width for cells that span the table */
+        .mystery-charm {
+            background-color: lightgray;
+        }
+        .shining-charm {
+            background-color: lightyellow;
+        }
+        .timeworn-charm {
+            background-color: lightcoral;
         }
     </style>
 </head>
@@ -46,14 +51,14 @@
     <h1>Talisman Generator</h1>
     <!-- Mystery Charm -->
     <h2>Mystery Charm</h2>
-    <table>
+    <table class="mystery-charm">
         <tr>
             <th class="type">Type</th>
             <th class="result-cell">Result</th>
         </tr>
         <tr>
             <td>Pawn Talisman</td>
-            <td class="result" id="pawnResult" rowspan="2">Result will be displayed here</td>
+            <td class="result" id="pawnResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -62,7 +67,7 @@
         </tr>
         <tr>
             <td>Bishop Talisman</td>
-            <td class="result" id="bishopResult" rowspan="2">Result will be displayed here</td>
+            <td class="result" id="bishopResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -72,14 +77,14 @@
     </table>
     <!-- Shining Charm -->
     <h2>Shining Charm</h2>
-    <table>
+    <table class="shining-charm">
         <tr>
             <th class="type">Type</th>
             <th class="result-cell">Result</th>
         </tr>
         <tr>
             <td>Knight Talisman</td>
-            <td class="result" id="knightResult" rowspan="2">Result will be displayed here</td>
+            <td class="result" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -88,7 +93,7 @@
         </tr>
         <tr>
             <td>Rook Talisman</td>
-            <td class="result" id="rookResult" rowspan="2">Result will be displayed here</td>
+            <td class="result" id="rookResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -98,14 +103,14 @@
     </table>
     <!-- Timeworn Charm -->
     <h2>Timeworn Charm</h2>
-    <table>
+    <table class="timeworn-charm">
         <tr>
             <th class="type">Type</th>
             <th class="result-cell">Result</th>
         </tr>
         <tr>
             <td>Queen Talisman</td>
-            <td class="result" id="queenResult" rowspan="2">Result will be displayed here</td>
+            <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -114,7 +119,7 @@
         </tr>
         <tr>
             <td>King Talisman</td>
-            <td class="result" id="kingResult" rowspan="2">Result will be displayed here</td>
+            <td class="result" id="kingResult">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
