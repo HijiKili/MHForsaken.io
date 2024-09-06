@@ -49,7 +49,7 @@
         </tr>
         <tr>
             <td>Pawn Talisman</td>
-            <td class="result" id="pawnResult" rowspan:"2">Result will be displayed here</td>
+            <td class="result" id="pawnResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <td>Bishop Talisman</td>
-            <td class="result" id="bishopResult" rowspan:"2">Result will be displayed here</td>
+            <td class="result" id="bishopResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td>Knight Talisman</td>
-            <td class="result" id="knightResult" rowspan:"2">Result will be displayed here</td>
+            <td class="result" id="knightResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td>Rook Talisman</td>
-            <td class="result" id="rookResult" rowspan:"2">Result will be displayed here</td>
+            <td class="result" id="rookResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -101,7 +101,7 @@
         </tr>
         <tr>
             <td>Queen Talisman</td>
-            <td class="result" id="queenResult" rowspan:"2">Result will be displayed here</td>
+            <td class="result" id="queenResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
@@ -110,7 +110,7 @@
         </tr>
         <tr>
             <td>King Talisman</td>
-            <td class="result" id="kingResult" rowspan:"2">Result will be displayed here</td>
+            <td class="result" id="kingResult" rowspan="2">Result will be displayed here</td>
         </tr>
         <tr>
             <td class="button-cell">
