@@ -77,7 +77,7 @@ function generateText(talismanType, resultElementId) {
         let levelProbabilities = selectedProbabilities[selectedTier].levels;
         let level = getRandomLevel(levelProbabilities);
 
-        // Display the skill and its level
+        // Display the skill and its level with "Lv."
         item += ` - ${level}`;
         resultHtml += `<p><strong>Main Skill:</strong> ${item}</p>`;
     }
@@ -101,8 +101,8 @@ function getRandomLevel(levelProbabilities) {
     for (const [level, chance] of Object.entries(levelProbabilities)) {
         cumulative += chance;
         if (random < cumulative) {
-            return level;
+            return level; // This returns the full "Lv.1", "Lv.2", etc.
         }
     }
-    return "Lv.1"; // Default to Lv.1 if no match
+    return "Lv.1"; // Default to "Lv.1" if no match
 }
