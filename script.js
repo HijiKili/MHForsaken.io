@@ -98,9 +98,18 @@ function generateText(talismanType, resultElementId) {
         return;
     }
 
-    // Create the result HTML
-    let resultHtml = `<h3>${selectedTier}</h3>`;
-
+    // Create the result HTML in table format
+    let resultHtml = `
+        <table>
+            <tr>
+                <th>Tier</th>
+                <th>Main Skill</th>
+                <th>Level</th>
+            </tr>
+            <tr>
+                <td>${selectedTier}</td>
+                <td>`;
+    
     if (selectedTier) {
         // Get a random skill from the selected tier's table
         let tierItems = tierTables[selectedTier];
@@ -113,16 +122,28 @@ function generateText(talismanType, resultElementId) {
 
         // Display the skill and its level with "Lv."
         item += ` - ${level}`;
-        resultHtml += `<p><strong>Main Skill:</strong> ${item}</p>`;
+        resultHtml += `${item}</td>`;
     }
 
-    // Add one bonus skill based on bonus probabilities
+    resultHtml += `<td>${level}</td></tr>
+            <tr>
+                <th>Bonus</th>
+                <td colspan="2">`;
+
     if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
         const bonuses = bonusProbabilities[talismanType];
         let bonus = getOneBonus(bonuses);
 
-        if (bonus) resultHtml += `<p><strong>${bonus}</strong></p>`;
+        if (bonus && bonus !== "Nothing") {
+            resultHtml += `${bonus}`;
+        } else {
+            resultHtml += `N/A`;
+        }
+    } else {
+        resultHtml += `N/A`;
     }
+
+    resultHtml += `</td></tr></table>`;
 
     // Insert the result HTML into the specified placeholder
     document.getElementById(resultElementId).innerHTML = resultHtml;
@@ -135,25 +156,21 @@ function getRandomLevel(levelProbabilities) {
     for (const [level, chance] of Object.entries(levelProbabilities)) {
         cumulative += chance;
         if (random < cumulative) {
-            return level; // This returns the full "Lv.1", "Lv.2", etc.
+            return level;
         }
     }
-    return "Lv.1"; // Default to "Lv.1" if no match
+    return "Lv.1"; // Default to "Lv.1" if something goes wrong
 }
 
-// Helper function to randomly select one bonus based on cumulative probabilities
-function getOneBonus(bonuses) {
+// Helper function to get one bonus based on probabilities
+function getOneBonus(bonusProbabilities) {
     let random = Math.random() * 100;
     let cumulative = 0;
-
-    // Calculate cumulative chance for all bonus types
-    for (const [bonusType, chance] of Object.entries(bonuses)) {
+    for (const [bonus, chance] of Object.entries(bonusProbabilities)) {
         cumulative += chance;
         if (random < cumulative) {
-            return bonusType;
+            return bonus === "Nothing" ? null : bonus;
         }
     }
-
-    return null; // If the random number doesn't match any bonus, return null
+    return null;
 }
-
