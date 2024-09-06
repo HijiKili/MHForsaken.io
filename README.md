@@ -8,37 +8,88 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
         th, td {
-            padding: 10px;
-            text-align: left;
             border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
         th {
             background-color: #f4f4f4;
         }
-        .result-table {
-            margin: 20px 0;
+        button {
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
     <h1>Talisman Generator</h1>
 
-    <button id="generatePawnButton">Generate Pawn</button>
-    <button id="generateBishopButton">Generate Bishop</button>
-    <button id="generateKnightButton">Generate Knight</button>
-    <button id="generateRookButton">Generate Rook</button>
-    <button id="generateQueenButton">Generate Queen</button>
-    <button id="generateKingButton">Generate King</button>
+    <!-- Mystery Charm -->
+    <h2>Mystery Charm</h2>
+    <table>
+        <tr>
+            <th>Talisman Type</th>
+            <th>Generate</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Pawn Talisman</td>
+            <td><button id="generatePawnButton">Generate Pawn Talisman</button></td>
+            <td class="result" id="pawnResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td>Bishop Talisman</td>
+            <td><button id="generateBishopButton">Generate Bishop Talisman</button></td>
+            <td class="result" id="bishopResult">Result will be displayed here</td>
+        </tr>
+    </table>
 
-    <div id="pawnResult" class="result-table"></div>
-    <div id="bishopResult" class="result-table"></div>
-    <div id="knightResult" class="result-table"></div>
-    <div id="rookResult" class="result-table"></div>
-    <div id="queenResult" class="result-table"></div>
-    <div id="kingResult" class="result-table"></div>
+    <!-- Shining Charm -->
+    <h2>Shining Charm</h2>
+    <table>
+        <tr>
+            <th>Talisman Type</th>
+            <th>Generate</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Knight Talisman</td>
+            <td><button id="generateKnightButton">Generate Knight Talisman</button></td>
+            <td class="result" id="knightResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td>Rook Talisman</td>
+            <td><button id="generateRookButton">Generate Rook Talisman</button></td>
+            <td class="result" id="rookResult">Result will be displayed here</td>
+        </tr>
+    </table>
+
+    <!-- Timeworn Charm -->
+    <h2>Timeworn Charm</h2>
+    <table>
+        <tr>
+            <th>Talisman Type</th>
+            <th>Generate</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Queen Talisman</td>
+            <td><button id="generateQueenButton">Generate Queen Talisman</button></td>
+            <td class="result" id="queenResult">Result will be displayed here</td>
+        </tr>
+        <tr>
+            <td>King Talisman</td>
+            <td><button id="generateKingButton">Generate King Talisman</button></td>
+            <td class="result" id="kingResult">Result will be displayed here</td>
+        </tr>
+    </table>
 
     <script src="script.js"></script>
 </body>
