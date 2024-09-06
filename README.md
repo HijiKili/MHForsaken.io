@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,28 +20,16 @@
             <td class="result" id="pawnResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
-                <button id="generatePawnButton">Praise</button>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <span id="pawnBonus">This talisman has no bonus</span>
-            </td>
+            <td class="button-cell"><button id="generatePawnButton">Praise</button></td>
+            <td>This talisman has no bonus</td>
         </tr>
         <tr>
             <td>Bishop Talisman</td>
             <td class="result" id="bishopResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
-                <button id="generateBishopButton">Praise</button>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <span id="bishopBonus">This talisman has no bonus</span>
-            </td>
+            <td class="button-cell"><button id="generateBishopButton">Praise</button></td>
+            <td>This talisman has no bonus</td>
         </tr>
     </table>    
     <br>    
@@ -58,10 +45,8 @@
             <td class="result" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td class="button-cell" colspan="2">
-                <button id="generateKnightButton">Praise</button>
-                <span id="knightBonus">Bonus will be displayed here</span>
-            </td>
+            <td class="button-cell"><button id="generateKnightButton">Praise</button></td>
+            <td id="knightBonus">Bonus will be displayed here</td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
@@ -69,9 +54,8 @@
         </tr>
         <tr>
             <td class="button-cell" colspan="2">
-                <button id="generateRookButton">Praise</button>
-                <span id="rookBonus">Bonus will be displayed here</span>
-            </td>
+                <button id="generateRookButton">Praise</button></td>
+                <td id="rookBonus">Bonus will be displayed here</td>
         </tr>
     </table>    
     <br>    
@@ -88,9 +72,8 @@
         </tr>
         <tr>
             <td class="button-cell" colspan="2">
-                <button id="generateQueenButton">Praise</button>
-                <span id="queenBonus">Bonus will be displayed here</span>
-            </td>
+                <button id="generateQueenButton">Praise</button></td>
+                <td id="queenBonus">Bonus will be displayed here</td>
         </tr>
         <tr>
             <td>King Talisman</td>
@@ -98,9 +81,8 @@
         </tr>
         <tr>
             <td class="button-cell" colspan="2">
-                <button id="generateKingButton">Praise</button>
-                <span id="kingBonus">Bonus will be displayed here</span>
-            </td>
+                <button id="generateKingButton">Praise</button></td>
+                <td id="kingBonus">Bonus will be displayed here</td>
         </tr>
     </table>    
     <script src="MainSkillRandom.js"></script>
