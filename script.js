@@ -1,12 +1,3 @@
-
-// Add event listeners for each button
-document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn", "pawnResult"));
-document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop", "bishopResult"));
-document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight", "knightResult"));
-document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook", "rookResult"));
-document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen", "queenResult"));
-document.getElementById("generateKingButton").addEventListener("click", () => generateText("King", "kingResult"));
-
 // Define tier tables for each tier
 const tierTables = {
     "Tier 1": ["Health Boost", "Recovery Speed", "Recovery Up", "Fire Res", "Fire Attack"],
@@ -48,33 +39,13 @@ const talismanProbabilities = {
     }
 };
 
-// Define bonus probabilities with levels for each talisman
-const bonusProbabilities = {
-    "Knight": {
-        "Skill Bonus": { chance: 3, levels: { "Lv.1": 100 } },
-        "Family Bonus": { chance: 0, levels: { "Lv.1": 0 } },
-        "Slot Bonus": { chance: 11, levels: { "Lv.1": 100 } },
-        "Nothing": { chance: 86, levels: { "Lv.1": 0 } }
-    },
-    "Rook": {
-        "Skill Bonus": { chance: 7, levels: { "Lv.1": 100 } },
-        "Family Bonus": { chance: 4, levels: { "Lv.1": 100 } },
-        "Slot Bonus": { chance: 25, levels: { "Lv.1": 100 } },
-        "Nothing": { chance: 64, levels: { "Lv.1": 0 } }
-    },
-    "Queen": {
-        "Skill Bonus": { chance: 11, levels: { "Lv.1": 100 } },
-        "Family Bonus": { chance: 10, levels: { "Lv.1": 100 } },
-        "Slot Bonus": { chance: 42, levels: { "Lv.1": 100 } },
-        "Nothing": { chance: 37, levels: { "Lv.1": 0 } }
-    },
-    "King": {
-        "Skill Bonus": { chance: 39, levels: { "Lv.1": 100 } },
-        "Family Bonus": { chance: 46, levels: { "Lv.1": 100 } },
-        "Slot Bonus": { chance: 12, levels: { "Lv.1": 100 } },
-        "Nothing": { chance: 3, levels: { "Lv.1": 0 } }
-    }
-};
+// Add event listeners for each button
+document.getElementById("generatePawnButton").addEventListener("click", () => generateText("Pawn", "pawnResult"));
+document.getElementById("generateBishopButton").addEventListener("click", () => generateText("Bishop", "bishopResult"));
+document.getElementById("generateKnightButton").addEventListener("click", () => generateText("Knight", "knightResult"));
+document.getElementById("generateRookButton").addEventListener("click", () => generateText("Rook", "rookResult"));
+document.getElementById("generateQueenButton").addEventListener("click", () => generateText("Queen", "queenResult"));
+document.getElementById("generateKingButton").addEventListener("click", () => generateText("King", "kingResult"));
 
 // Function to generate text based on talisman type
 function generateText(talismanType, resultElementId) {
@@ -123,41 +94,22 @@ function generateText(talismanType, resultElementId) {
                 <td>${selectedTier}</td>
                 <td>${item}</td>
                 <td>${level}</td>
-            </tr>`;
-
-    // Bonus handling
-    if (["Knight", "Rook", "Queen", "King"].includes(talismanType)) {
-        const bonuses = bonusProbabilities[talismanType];
-        let bonus = getOneBonus(bonuses);
-
-        if (bonus) {
-            let bonusLevel = "N/A";
-            if (bonus !== "Nothing") {
-                bonusLevel = getBonusLevel(bonus, bonuses);
-            }
-            resultHtml += `
-            <tr>
-                <th>Bonus</th>
-                <td>${bonus}</td>
-                <td>${bonusLevel}</td>
-            </tr>`;
-        } else {
-            resultHtml += `
-            <tr>
-                <th>Bonus</th>
-                <td colspan="2">N/A</td>
-            </tr>`;
-        }
-    } else {
-        resultHtml += `
-        <tr>
-            <th>Bonus</th>
-            <td colspan="2">N/A</td>
-        </tr>`;
-    }
-
-    resultHtml += `</table>`;
+            </tr>
+        </table>`;
 
     // Insert the result HTML into the specified placeholder
     document.getElementById(resultElementId).innerHTML = resultHtml;
+}
+
+// Helper function to select the random level based on probabilities
+function getRandomLevel(levelProbabilities) {
+    let random = Math.random() * 100;
+    let cumulative = 0;
+    for (const [level, chance] of Object.entries(levelProbabilities)) {
+        cumulative += chance;
+        if (random < cumulative) {
+            return level;
+        }
+    }
+    return "Lv.1"; // Default to "Lv.1" if something goes wrong
 }
