@@ -52,11 +52,11 @@
             <td class="result" id="knightResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2">Rarely gives Lv.3 tier 1 and low decoration slot</td>
-        </tr>
-        <tr>
             <td class="button-cell"><button id="generateKnightButton">Praise</button></td>
             <td id="knightBonus">Bonus will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="2">Rarely gives Lv.3 tier 1 and low decoration slot</td>
         </tr>
         <tr>
             <td>Rook Talisman</td>
@@ -85,11 +85,11 @@
             <td class="result" id="queenResult">Result will be displayed here</td>
         </tr>
         <tr>
-            <td colspan="2">Best chance to have a Family Bonus</td>
-        </tr>
-        <tr>
             <td class="button-cell"><button id="generateQueenButton">Praise</button></td>
             <td id="queenBonus">Bonus will be displayed here</td>
+        </tr>
+        <tr>
+            <td colspan="2">Best chance to have a Family Bonus</td>
         </tr>
         <tr>
             <td>King Talisman</td>
