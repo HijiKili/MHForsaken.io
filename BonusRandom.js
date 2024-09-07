@@ -18,28 +18,28 @@ const familyBonusLevels = [
 // Define bonus probabilities for each talisman
 const bonusProbabilities = {
     "Knight": {
-        "Second Skill": 9,
+        "Second Skill": 0,
         "Family Bonus": 0,
-        "Decoration Slot": 11,
+        "Decoration Slot": 20,
         "Nothing": 80
     },
     "Rook": {
-        "Second Skill": 11,
-        "Family Bonus": 4,
-        "Decoration Slot": 25,
-        "Nothing": 60
+        "Second Skill": 0,
+        "Family Bonus": 20,
+        "Decoration Slot": 60,
+        "Nothing": 20
     },
     "Queen": {
-        "Second Skill": 19,
-        "Family Bonus": 10,
-        "Decoration Slot": 42,
-        "Nothing": 29
+        "Second Skill": 20,
+        "Family Bonus": 50,
+        "Decoration Slot": 20,
+        "Nothing": 10
     },
     "King": {
-        "Second Skill": 47,
-        "Family Bonus": 41,
-        "Decoration Slot": 12,
-        "Nothing": 0
+        "Second Skill": 50,
+        "Family Bonus": 20,
+        "Decoration Slot": 20,
+        "Nothing": 10
     }
 };
 
@@ -53,10 +53,10 @@ const skillBonusMappings = {
 
 // Define Slot Bonus level probabilities for each talisman
 const slotBonusProbabilities = {
-    "Knight": { 1: 67, 2: 33 },
-    "Rook": { 1: 54, 2: 42, 3: 4 },
-    "Queen": { 1: 43, 2: 47, 3: 10 },
-    "King": { 1: 32, 2: 52, 3: 17 }
+    "Knight": { 1: 65, 2: 35 },
+    "Rook": { 1: 55, 2: 40, 3: 5 },
+    "Queen": { 1: 40, 2: 55, 3: 15 },
+    "King": { 1: 25, 2: 50, 3: 25 }
 };
 
 // Helper function to get one bonus based on probabilities
