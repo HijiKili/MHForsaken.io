@@ -8,19 +8,19 @@ const tierTables = {
 // Define talisman probabilities for tiers and levels
 const talismanProbabilities = {
     "Pawn": {
-        "Tier 1": { chance: 95, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
-        "Tier 2": { chance: 5, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
+        "Tier 1": { chance: 90, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
+        "Tier 2": { chance: 10, levels: { "Lv.1": 100, "Lv.2": 0, "Lv.3": 0 } },
         "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
     },
     "Bishop": {
-        "Tier 1": { chance: 68, levels: { "Lv.1": 95, "Lv.2": 5 } },
-        "Tier 2": { chance: 32, levels: { "Lv.1": 100 } },
-        "Tier 3": { chance: 0, levels: { "Lv.1": 100 } }
+        "Tier 1": { chance: 65, levels: { "Lv.1": 95, "Lv.2": 5 } },
+        "Tier 2": { chance: 30, levels: { "Lv.1": 100 } },
+        "Tier 3": { chance: 5, levels: { "Lv.1": 100 } }
     },
     "Knight": {
-        "Tier 1": { chance: 51, levels: { "Lv.1": 83, "Lv.2": 12, "Lv.3": 5 } },
-        "Tier 2": { chance: 57, levels: { "Lv.1": 95, "Lv.2": 5 } },
-        "Tier 3": { chance: 2, levels: { "Lv.1": 100 } }
+        "Tier 1": { chance: 50, levels: { "Lv.1": 75, "Lv.2": 20, "Lv.3": 5 } },
+        "Tier 2": { chance: 40, levels: { "Lv.1": 95, "Lv.2": 5 } },
+        "Tier 3": { chance: 10, levels: { "Lv.1": 100 } }
     },
     "Rook": {
         "Tier 1": { chance: 20, levels: { "Lv.1": 61, "Lv.2": 27, "Lv.3": 12 } },
